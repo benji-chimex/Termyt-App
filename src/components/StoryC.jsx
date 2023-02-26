@@ -49,7 +49,7 @@ export default function Story(props) {
             header_typed.current.destroy()
             paragraph_typed.current.destroy()
         }
-    }, [])
+    }, [props])
 
     const handleStoryC = (e) => {
       e.preventDefault()

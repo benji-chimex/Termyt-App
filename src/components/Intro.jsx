@@ -92,7 +92,7 @@ export default function Intro() {
                     </div>
                     <div className="justify-self-center relative animate-bounce cursor-pointer" onClick={handleHeader}>
                         <Image src={button} alt="Let's Go"/>
-                        <h1 className="absolute text-3xl top-5 left-10" style={cold}>Let's Go</h1>
+                        <h1 className="absolute text-3xl top-5 left-14" style={cold}>Start</h1>
                     </div>
                 </div>
             </div>
