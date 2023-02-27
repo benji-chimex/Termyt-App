@@ -9,6 +9,7 @@ import { useContext, useEffect } from "react"
 import termyt from "../../public/images/termyt-colony.jpg"
 import road_map from '../../public/images/roadmap.svg'
 import Footer from "@/components/Footer"
+import SideNav from "@/components/SideNav"
 
 const Termyt = {
   backgroundImage: `url(${termyt.src})`,
@@ -20,7 +21,7 @@ const footer = {
   backgroundImage: `url(${road_map.src})`,
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
-  height: "130vh"
+  height: "220vh"
 }
 
   const story = [
@@ -58,9 +59,12 @@ export default function Home() {
 
   return (
     <>
-      {headerActive && <div style={Termyt} className={showHeader ? "entrance-out" : "entrance"}>
-        <Header/>
-        <Intro/>
+      {headerActive && <div className="relative">
+        <div style={Termyt} className={showHeader ? "entrance-out" : "entrance"}>
+          <Header/>
+          <Intro/>
+        </div>
+        <SideNav/>
       </div>}
       {storiesActive && <div>
         {storyAActive && <StoryA header={story[0].header} paragraph={story[0].paragraph}/>}

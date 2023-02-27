@@ -12,6 +12,7 @@ const initialState = {
         showStoryA : false,
         showStoryB : false,
         showStoryC :false,
+        showSideBar : false
     }
 };
 
@@ -87,12 +88,21 @@ const StateProvider = ({ children }) => {
                     }
                 };
             case "Display/Hide StoryC Animation" :
+                console.log(payload)
                 return {
                     animation : {
                         ...state.animation,
                         showStoryC : payload.showStoryC
                     }
                 };
+            case "Display/Hide SideBar Animation" :
+                return {
+                    animation : {
+                        ...state.animation,
+                        showSideBar : payload.showSideBar
+                    }
+                };
+            
             default :
                 throw new Error()
         };

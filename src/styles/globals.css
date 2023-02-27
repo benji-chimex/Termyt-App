@@ -18,6 +18,10 @@
     animation: entrance 2s ease-out;
 }
 
+.entrance-side {
+    animation: entrance-side 2s ease-out;
+}
+
 @keyframes entrance-out {
     0% {
         opacity: 1;
@@ -60,5 +64,20 @@
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes entrance-side {
+    0% {
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateX(50vw);
+    }
+    100% {
+        opacity: 0.75;
+        transform: translateX(0);
     }
 }

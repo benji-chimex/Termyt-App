@@ -1,5 +1,4 @@
 import parallax from '../../public/images/parallax.svg'
-import btn from '../../public/images/button-transparent.svg'
 import local from '@next/font/local'
 import Image from 'next/image'
 import { Righteous } from '@next/font/google'
@@ -81,12 +80,12 @@ export default function Story(props) {
       <div className={showStoryB ? "entrance-in" : "hidden"}>
         <main style={story} className={storyCActive ? "entrance-out" : "relative"}>
             <div className="absolute top-10 left-20 max-w-min">
-              <h1 className="text-white text-7xl" style={cold} ref={header_el}/>
+              <h1 className="text-white text-5xl md:text-7xl" style={cold} ref={header_el}/>
             </div>
             <div className="absolute top-32 left-24">
-                <p className="text-white text-2xl max-w-lg" style={right} ref={paragraph_el}/>
+                <p className="text-white text-xl md:text-2xl max-w-md lg:max-w-lg" style={right} ref={paragraph_el}/>
             </div>
-            <div className="absolute bottom-8 right-8 animate-bounce" onClick={handleStoryB}>
+            <div className="absolute bottom-12 md:bottom-8 right-6 md:right-8 animate-bounce" onClick={handleStoryB}>
                 <div className="relative">
                     <Image src={button} alt="Next"/>
                     <h1 className="absolute text-2xl top-4 left-8 text-black cursor-pointer" style={right}>

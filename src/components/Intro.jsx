@@ -85,12 +85,12 @@ export default function Intro() {
       <>
         <main style={Termyt} className="">
             <div className="absolute inset-1/4">
-                <div className="grid grid-rows-2 gap-16">
-                    <div className="">
-                        <h1 className='text-white text-9xl text-center my-2' style={robus} ref={header_el}/>
-                        <span className='text-white text-2xl' style={cold} ref={span_el}/>
+                <div className="grid grid-rows-2 gap-4 justify-center">
+                    <div className="flex flex-col justify-center">
+                        <h1 className='text-white text-8xl lg:text-9xl text-center my-2' style={robus} ref={header_el}/>
+                        <span className='text-white text-center text-xl lg:text-2xl' style={cold} ref={span_el}/>
                     </div>
-                    <div className="justify-self-center relative animate-bounce cursor-pointer" onClick={handleHeader}>
+                    <div className="justify-self-center relative animate-bounce cursor-pointer self-center" onClick={handleHeader}>
                         <Image src={button} alt="Let's Go"/>
                         <h1 className="absolute text-3xl top-5 left-14" style={cold}>Start</h1>
                     </div>
