@@ -13,14 +13,10 @@ import SideNav from "@/components/SideNav"
 
 const Termyt = {
   backgroundImage: `url(${termyt.src})`,
-  backgroundSize: "cover",
-  backgroundRepeat: "no-repeat",
 }
 
 const footer = {
   backgroundImage: `url(${road_map.src})`,
-  backgroundSize: "cover",
-  backgroundRepeat: "no-repeat",
   height: "220vh"
 }
 
@@ -60,7 +56,8 @@ export default function Home() {
   return (
     <>
       {headerActive && <div className="relative">
-        <div style={Termyt} className={showHeader ? "entrance-out" : "entrance"}>
+        <div style={Termyt} className={showHeader ? "entrance-out bg-contain md:bg-cover bg-no-repeat" 
+        : "entrance bg-contain md:bg-cover bg-no-repeat"}>
           <Header/>
           <Intro/>
         </div>
@@ -71,7 +68,7 @@ export default function Home() {
         {storyBActive && <StoryB header={story[1].header} paragraph={story[1].paragraph}/>}
         {storyCActive && <StoryC header={story[2].header} paragraph={story[2].paragraph}/>}
       </div>}
-      {footerActive && <div style={footer}>
+      {footerActive && <div style={footer} className="bg-contain md:bg-cover bg-no-repeat">
         <Roadmap/>
       </div>}
     </>

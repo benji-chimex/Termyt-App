@@ -18,8 +18,6 @@ const robus = {
 
 const header_img = {
   backgroundImage: `url(${HeaderImg.src})`,
-  backgroundSize: "cover",
-  backgroundRepeat: "no-repeat",
   height: "12vh"
 }
 
@@ -39,8 +37,8 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-gray-900" style={header_img}>
-        <div className="flex flex-row items-center px-5 lg:py-4">
+      <header className="bg-gray-900 md:bg-cover bg-contain bg-no-repeat" style={header_img}>
+        <div className="flex flex-row items-center px-5 py-4">
           <div className="basis-1/4">
             <h1 className="text-5xl text-start text-white" style={robus}>
               <a>Termyt</a>

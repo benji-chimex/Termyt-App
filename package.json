@@ -10,12 +10,16 @@
   },
   "dependencies": {
     "@next/font": "13.1.6",
+    "@web3modal/ethereum": "^2.1.1",
+    "@web3modal/react": "^2.1.1",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
+    "ethers": "^5.7.2",
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typed.js": "^2.0.12"
+    "typed.js": "^2.0.12",
+    "wagmi": "^0.11.7"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",

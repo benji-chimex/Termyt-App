@@ -26,8 +26,6 @@ const right = {
 
 const story = {
   backgroundImage: `url(${parallax.src})`,
-  backgroundSize: "cover",
-  backgroundRepeat: "no-repeat",
   height: "100vh"
 }
 
@@ -84,14 +82,15 @@ export default function Story(props) {
 
     return (
       <div className={showStoryC ? "entrance-in" : "hidden"}>
-        <main style={story} className={footerActive ? "entrance-out" : "relative"}>
+        <main style={story} className={footerActive ? "entrance-out bg-contain md:bg-cover bg-no-repeat" 
+        : "relative bg-contain md:bg-cover bg-no-repeat"}>
             <div className="absolute top-10 left-20 max-w-min">
               <h1 className="text-white text-5xl md:text-7xl" style={cold} ref={header_el}/>
             </div>
             <div className="absolute top-32 left-24">
-                <p className="text-white text-xl md:text-2xl max-w-md lg:max-w-lg" style={right} ref={paragraph_el}/>
+                <p className="text-white text-xl md:text-2xl max-w-sm md:max-w-lg" style={right} ref={paragraph_el}/>
             </div>
-            <div className="absolute bottom-12 md:bottom-8 right-6 md:right-8 animate-bounce" onClick={handleStoryC}>
+            <div className="absolute bottom-20 md:bottom-8 right-6 md:right-8 animate-bounce" onClick={handleStoryC}>
                 <div className="relative">
                     <Image src={button} alt="Next"/>
                     <h1 className="absolute text-2xl top-4 left-8 text-black cursor-pointer" style={right}>
