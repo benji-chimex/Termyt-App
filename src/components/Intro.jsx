@@ -1,7 +1,7 @@
 import button from '../../public/images/button.svg'
 import local from '@next/font/local'
 import Image from 'next/image'
-import { useEffect, useRef, useContext } from 'react'
+import { useEffect, useRef, useContext, useState } from 'react'
 import Typed from 'typed.js'
 import { store } from '@/store'
 
@@ -25,10 +25,19 @@ export default function Intro() {
     const header_typed = useRef(null)
     const span_el = useRef(null)
     const span_typed = useRef(null)
+    const main = useRef(null)
+
+    const [breath, setBreath] = useState()
 
     const { dispatch } = useContext(store)
     
     useEffect(() => {
+        const breath = {
+            height : main.current.clientWidth < 640 ? "80vh" : "88vh"
+        }
+
+        setBreath(breath)
+
         const options = {
             strings : ["The Termyt NFT collection mimicking a termite colony."],
             typeSpeed : 100
@@ -60,7 +69,7 @@ export default function Intro() {
                     headerActive : false
                 }
             })
-        }, 2000)
+        }, 1000)
         dispatch({
             type : "Display/Hide Stories",
             payload : {
@@ -83,7 +92,7 @@ export default function Intro() {
 
     return (
       <>
-        <main style={Termyt} className="">
+        <main style={breath} className="" ref={main}>
             <div className="absolute inset-1/4">
                 <div className="grid grid-rows-2 gap-4 justify-center">
                     <div className="flex flex-col justify-center">

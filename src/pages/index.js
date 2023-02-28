@@ -5,7 +5,7 @@ import StoryA from "@/components/StoryA"
 import StoryB from "@/components/StoryB"
 import StoryC from "@/components/StoryC"
 import { store } from "@/store"
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import termyt from "../../public/images/termyt-colony.jpg"
 import road_map from '../../public/images/roadmap.svg'
 import Footer from "@/components/Footer"
@@ -17,7 +17,6 @@ const Termyt = {
 
 const footer = {
   backgroundImage: `url(${road_map.src})`,
-  height: "220vh"
 }
 
   const story = [
@@ -53,11 +52,26 @@ export default function Home() {
     showHeader
   } = state.animation
 
+  const [breath, setBreath] = useState({})
+
+  const div = useRef(null)
+
+  useEffect(() => {
+    if(footerActive) {
+      const width = {
+        height : div.current.clientWidth < 1024 ? "215vh" : "135vh"
+      }
+  
+      setBreath(width)
+      console.log(breath)
+    }
+  }, [footerActive])
+
   return (
     <>
-      {headerActive && <div className="relative">
-        <div style={Termyt} className={showHeader ? "entrance-out bg-contain md:bg-cover bg-no-repeat" 
-        : "entrance bg-contain md:bg-cover bg-no-repeat"}>
+      {headerActive && <div className="relative w-full">
+        <div style={Termyt} className={showHeader ? "entrance-out bg-cover bg-no-repeat bg-center" 
+        : "entrance bg-cover bg-no-repeat bg-center"}>
           <Header/>
           <Intro/>
         </div>
@@ -68,9 +82,11 @@ export default function Home() {
         {storyBActive && <StoryB header={story[1].header} paragraph={story[1].paragraph}/>}
         {storyCActive && <StoryC header={story[2].header} paragraph={story[2].paragraph}/>}
       </div>}
-      {footerActive && <div style={footer} className="bg-contain md:bg-cover bg-no-repeat">
+      {footerActive && <div style={{backgroundImage : footer.backgroundImage, height : breath.height}} 
+        className="bg-cover bg-no-repeat bg-center bg-gray-900" ref={div}>
         <Roadmap/>
       </div>}
+      {footerActive && <Footer/>}
     </>
   )
 }

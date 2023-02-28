@@ -7,19 +7,19 @@
 }
 
 .entrance-out {
-    animation: entrance-out 2s ease-out;
+    animation: entrance-out 1s ease-in;
 }
 
 .entrance-in {
-    animation: entrance-in 2s ease-out 2s;
+    animation: entrance-in 1s ease-in 1s;
 }
 
 .entrance {
-    animation: entrance 2s ease-out;
+    animation: entrance 1s ease-in;
 }
 
 .entrance-side {
-    animation: entrance-side 2s ease-out;
+    animation: entrance-side 1s ease-in;
 }
 
 @keyframes entrance-out {

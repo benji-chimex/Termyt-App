@@ -65,7 +65,7 @@ export default function Story(props) {
                 headerActive : true
             }
           })
-      }, 2000)
+      }, 1000)
       dispatch({
           type : "Display/Hide Footer",
           payload : {
@@ -85,10 +85,10 @@ export default function Story(props) {
         <main style={story} className={footerActive ? "entrance-out bg-contain md:bg-cover bg-no-repeat" 
         : "relative bg-contain md:bg-cover bg-no-repeat"}>
             <div className="absolute top-10 left-20 max-w-min">
-              <h1 className="text-white text-5xl md:text-7xl" style={cold} ref={header_el}/>
+              <h1 className="text-white text-3xl md:text-7xl" style={cold} ref={header_el}/>
             </div>
             <div className="absolute top-32 left-24">
-                <p className="text-white text-xl md:text-2xl max-w-sm md:max-w-lg" style={right} ref={paragraph_el}/>
+                <p className="text-white text-sm md:text-2xl max-w-sm md:max-w-lg" style={right} ref={paragraph_el}/>
             </div>
             <div className="absolute bottom-20 md:bottom-8 right-6 md:right-8 animate-bounce" onClick={handleStoryC}>
                 <div className="relative">

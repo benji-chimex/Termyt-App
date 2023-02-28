@@ -45,12 +45,12 @@ export default function Roadmap () {
         <div className="block">
             <main className="relative">
                 <div className="absolute top-10 left-20 max-w-min">
-                    <h1 className="text-7xl" style={cold} ref={header_el}/>
+                    <h1 className="text-5xl md:text-6xl lg:text-7xl text-white" style={cold} ref={header_el}/>
                 </div>
                 <div className="absolute top-32 left-24">
-                    <p className="text-2xl max-w-lg" style={right} ref={paragraph_el}/>
+                    <p className="text-lg md:text-xl lg:text-2xl text-white max-w-sm md:max-w-md :max-w-lg" style={right} ref={paragraph_el}/>
                 </div>
-                <div className="absolute top-64 w-full">
+                <div className="absolute top-60 w-full">
                     <div className="lg:relative grid grid-rows-4 gap-2 justify-center">
                         <div className="hover:animate-bounce lg:absolute lg:top-0 lg:left-20 w-80 h-56 
                             clip bg-amber-500 border-4 border-black m-5">
@@ -64,7 +64,7 @@ export default function Roadmap () {
                             </div>
                         </div>
                         <div className="hover:animate-bounce lg:absolute lg:top-8 lg:right-20 w-80 h-56
-                         clip bg-amber-500 border-4 border-black">
+                         clip bg-amber-500 border-4 border-black m-5">
                             <div className="px-6 py-4">
                                 <h1 style={cold} className="text-sm">APRIL 2023</h1>
                                 <h1 style={cold} className="text-xl">$MOLD LAUNCH</h1>
@@ -74,7 +74,8 @@ export default function Roadmap () {
                                 </p>
                             </div>
                         </div>
-                        <div className="hover:animate-bounce lg:absolute lg:top-56 lg:left-96 w-80 h-56 clip bg-amber-500 border-4 border-black">
+                        <div className="hover:animate-bounce lg:absolute lg:top-56 lg:left-96 w-80 h-56 clip
+                         bg-amber-500 border-4 border-black m-5">
                             <div className="px-6 py-4">
                                 <h1 style={cold} className="text-sm">JUNE 2023</h1>
                                 <h1 style={cold} className="text-xl">$LAVA LAUNCH</h1>
@@ -84,7 +85,8 @@ export default function Roadmap () {
                                 </p>
                             </div>
                         </div>
-                        <div className="hover:animate-bounce lg:absolute lg:top-80 lg:right-48 w-80 h-56 clip bg-amber-500 border-4 border-black">
+                        <div className="hover:animate-bounce lg:absolute lg:top-80 lg:right-48 w-80 h-56 clip
+                         bg-amber-500 border-4 border-black m-5">
                             <div className="px-6 py-4">
                                 <h1 style={cold} className="text-sm">AUG 2023</h1>
                                 <h1 style={cold} className="text-xl">GAME LAUNCH</h1>
