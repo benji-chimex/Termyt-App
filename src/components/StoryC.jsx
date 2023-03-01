@@ -65,13 +65,13 @@ export default function Story(props) {
                 headerActive : true
             }
           })
+          dispatch({
+            type : "Display/Hide Footer",
+            payload : {
+                footerActive : true
+            }
+          })
       }, 1000)
-      dispatch({
-          type : "Display/Hide Footer",
-          payload : {
-              footerActive : true
-          }
-      })
       dispatch({
         type : "Display/Hide Header Animation",
         payload : {

@@ -29,11 +29,14 @@ export default function Header() {
 
   const header = useRef(null)
   const [width, setWidth] = useState()
+  const [height, setHeight] = useState()
 
   useEffect(() => {
-    const value = header.current.clientWidth < 640 ? 300 : 150
+    const width = header.current.clientWidth < 640 ? 200 : 150
+    const height = header.current.clientWidth < 640 ? 160 : 130
 
-    setWidth(value)
+    setWidth(width)
+    setHeight(height)
   }, [width])
 
   const handleOpen = (e) => {
@@ -60,7 +63,7 @@ export default function Header() {
       <header className="bg-gray-900 md:bg-cover md:bg-no-repeat" style={header_img} ref={header}>
         <div className="flex flex-row items-center px-3 lg:px-5">
           <div className="basis-1/4 justify-self-start">
-            <Image src={logo} alt="Logo" width={width} height={130}/>
+            <Image src={logo} alt="Logo" width={width} height={height}/>
           </div>
           <div className="basis-1/2 lg:hidden"></div>
           <div className="hidden basis-1/2 lg:block">

@@ -41,10 +41,18 @@ export default function Mint () {
         args : [value],
         overrides : {
             value : ethers.utils.parseEther("1")
+        },
+        onSuccess(data) {
+            console.log(data)
+            setValue("")
+        },
+        onError(error) {
+            console.log(error)
+            setValue("")
         }
     })
 
-    const { data, isLoading, isSuccess, isError, write } = useContractWrite(config)
+    const { write } = useContractWrite(config)
 
     const handleClose = (e) => {
         e.preventDefault()
@@ -59,22 +67,12 @@ export default function Mint () {
 
     const handleMint = (e) => {
         e.preventDefault()
-
+        
         write?.()
-
-        if(isLoading) {
-            console.log("Loading")
-        }
-        if(isError) {
-            console.log(error)
-        }
-        if(isSuccess) {
-            console.log(data)
-        }
     }
 
     return (
-        <div className={mintActive ? "entrance absolute md:inset-1/4 top-10 left-10 h-4/5 w-4/5 md:h-1/2 md:w-1/2 bg-gray-900 opacity-90" 
+        <div className={mintActive ? "entrance absolute md:inset-1/4 top-10 left-10 w-4/5 h-1/2 md:w-1/2 bg-gray-900 opacity-90" 
         : "hidden"}>
             <main className='relative p-5'>
                 <div className="grid grid-rows-3 gap-2 justify-center">
@@ -87,7 +85,7 @@ export default function Mint () {
                         <input onChange={(e) => setValue(e.target.value)} style={right} id='input' type="text" className='w-full p-5 rounded-lg shadow-inner' placeholder='Mint Amount should be less than 5'/>
                     </div>
                     <div className="justify-self-center mt-5">
-                        <a onClick={handleMint} className='text-2xl p-3 bg-amber-500 rounded-lg shadow-2xl' style={cold}>Mint</a>
+                        <a onClick={handleMint} className='text-2xl p-3 bg-amber-500 rounded-lg cursor-pointer shadow-2xl' style={cold}>Mint</a>
                     </div>
                 </div>
                 <div className="absolute right-5 top-5 cursor-pointer" onClick={handleClose}>
