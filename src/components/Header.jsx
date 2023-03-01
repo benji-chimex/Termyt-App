@@ -45,8 +45,8 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-gray-900 bg-center bg-cover bg-no-repeat" style={header_img}>
-        <div className="flex flex-row items-center px-3 lg:px-5 pt-2 lg:pt-0">
+      <header className="bg-gray-900 bg-center bg-contain bg-repeat" style={header_img}>
+        <div className="flex flex-row items-center px-3 lg:px-5">
           <div className="basis-1/4 justify-self-start">
             <Image src={logo} alt="Logo" width={150} height={130}/>
           </div>
