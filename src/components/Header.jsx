@@ -30,9 +30,9 @@ export default function Header() {
     e.preventDefault()
 
     dispatch({
-      type : "Display/Hide SideBar",
+      type : "Display/Hide Footer",
       payload : {
-        sideBarActive : true
+        footerActive : false
       }
     })
     dispatch({
@@ -46,7 +46,7 @@ export default function Header() {
   return (
     <>
       <header className="bg-gray-900 bg-center bg-cover bg-no-repeat" style={header_img}>
-        <div className="flex flex-row items-center px-3 lg:px-5">
+        <div className="flex flex-row items-center px-3 lg:px-5 pt-2 lg:pt-0">
           <div className="basis-1/4 justify-self-start">
             <Image src={logo} alt="Logo" width={150} height={130}/>
           </div>

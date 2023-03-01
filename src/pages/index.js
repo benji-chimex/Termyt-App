@@ -62,7 +62,7 @@ export default function Home() {
       let width = {}
       if(div.current.clientWidth < 640) {
         width = {
-          height : "200vh"
+          height : "160vh"
         }
       } else if(div.current.clientWidth < 1024) {
         width = {
