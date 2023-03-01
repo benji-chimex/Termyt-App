@@ -5,15 +5,15 @@ import { Web3Modal } from '@web3modal/react'
 import { configureChains, createClient, WagmiConfig } from 'wagmi'
 import { avalanche, avalancheFuji } from 'wagmi/chains'
 
-const project_id = "e283e02dc6922cf2ea683a1414f04c39"
+const projectId = "e283e02dc6922cf2ea683a1414f04c39"
 
 const chains = [avalanche, avalancheFuji]
 
-const { provider } = configureChains(chains, [walletConnectProvider({ project_id })])
+const { provider } = configureChains(chains, [walletConnectProvider({ projectId })])
 
 const wagmiClient = createClient({
   autoConnect : true,
-  connectors : modalConnectors({ version : "1", appName : "Termyt", chains, project_id }),
+  connectors : modalConnectors({ version : "1", appName : "Termyt", chains, projectId }),
   provider
 })
 
@@ -28,7 +28,7 @@ export default function App({ Component, pageProps }) {
         </WagmiConfig>
       </StateProvider>
 
-      <Web3Modal projectId={project_id} ethereumClient={ethereumClient} />
+      <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
     </>
   )
 }

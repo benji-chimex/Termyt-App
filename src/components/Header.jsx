@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useContext, useState } from 'react'
 import { store } from '@/store'
 import { useAccount, useConnect } from 'wagmi'
+import { Web3Button } from '@web3modal/react'
 
 const Cold_Warm = local({ src : "../../public/fonts/Cold_Warm.otf" })
 const Robus = local({ src : "../../public/fonts/Robus.otf" })
@@ -24,12 +25,16 @@ const header_img = {
 
 export default function Header() {
   const { state, dispatch } = useContext(store)
-  const { isConnected, connector: activeConnector } = useAccount()
-  const { connect, error, isLoading } = useConnect()
 
   const handleOpen = (e) => {
     e.preventDefault()
 
+    dispatch({
+      type : "Display/Hide SideBar",
+      payload : {
+        sideBarActive : true
+      }
+    })
     dispatch({
       type : "Display/Hide SideBar Animation",
       payload : {
@@ -40,7 +45,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-gray-900 bg-center bg-contain bg-no-repeat" style={header_img}>
+      <header className="bg-gray-900 bg-center bg-cover bg-no-repeat" style={header_img}>
         <div className="flex flex-row items-center px-3 lg:px-5 lg:py-3 py-2">
           <div className="basis-1/4">
             <h1 className="text-5xl text-start text-white" style={robus}>
@@ -61,18 +66,8 @@ export default function Header() {
               </div>
             </div>
           </div>
-          <div className="hidden basis-1/4 lg:block">
-            {!isLoading ? <div className="text-center text-lg" style={cold}>
-              <a className='bg-amber-300 p-3 rounded-lg cursor-pointer'
-                onClick={() => !isConnected ? "" : connect({ connector })}>
-                { isConnected ? "Connected" : "Connect Wallet" }
-              </a>
-            </div> : <div className="text-center text-lg" style={cold}>
-              <svg className="animation-spin h-5 w-5 mr-3" viewBox='0 0 24 24'></svg>
-                <a className='bg-amber-300 p-3 rounded-lg cursor-pointer'>
-                  Connecting
-                </a>
-            </div>}
+          <div className="hidden basis-1/4 lg:flex justify-center">
+            <Web3Button/>
           </div>
           <div className="basis-1/4 lg:hidden flex justify-end cursor-pointer" onClick={handleOpen}>
             <Image src={menu} alt="Menu" width={60} height={60}/>

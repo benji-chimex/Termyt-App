@@ -58,12 +58,22 @@ export default function Home() {
 
   useEffect(() => {
     if(footerActive) {
-      const width = {
-        height : div.current.clientWidth < 1024 ? "215vh" : "135vh"
+      let width = {}
+      if(div.current.clientWidth < 1024) {
+        width = {
+          height : "215vh"
+        }
+      } else if(div.current.clientWidth < 640) {
+        width = {
+          height : "200vh"
+        } 
+      } else {
+        width = {
+          height : "135vh"
+        } 
       }
   
       setBreath(width)
-      console.log(breath)
     }
   }, [footerActive])
 
@@ -83,7 +93,7 @@ export default function Home() {
         {storyCActive && <StoryC header={story[2].header} paragraph={story[2].paragraph}/>}
       </div>}
       {footerActive && <div style={{backgroundImage : footer.backgroundImage, height : breath.height}} 
-        className="bg-cover bg-no-repeat bg-center bg-gray-900" ref={div}>
+        className="bg-contain bg-repeat bg-center bg-gray-900" ref={div}>
         <Roadmap/>
       </div>}
       {footerActive && <Footer/>}

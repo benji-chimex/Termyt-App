@@ -18,14 +18,14 @@ export default function Footer () {
                 <div className="flex flex-row items-center">
                     <div className="basis-1/4"></div>
                     <div className="basis-1/2">
-                        <div className="grid grid-cols-3 items-center">
-                            <div className="">
+                        <div className="grid grid-cols-3 items-center justify-center">
+                            <div className="flex justify-center">
                                 <h1 style={right}>&copy; 2023</h1>
                             </div>
-                            <div className="">
+                            <div className="flex justify-center">
                                 <h1 style={right}>TechBlitz Ltd</h1>
                             </div>
-                            <div className="">
+                            <div className="flex justify-center">
                                 <h1 style={right}>All Rights Reserved</h1>
                             </div>
                         </div>

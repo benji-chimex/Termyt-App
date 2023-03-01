@@ -7,6 +7,7 @@ const initialState = {
         storyBActive : false,
         storyCActive : false,
         footerActive : false,
+        sideBarActive : false,
         storiesActive : false,
         showHeader : false,
         showStoryA : false,
@@ -65,6 +66,13 @@ const StateProvider = ({ children }) => {
                         footerActive : payload.footerActive
                     }
                 };
+            case "Display/Hide SideBar" :
+                return {
+                    animation : {
+                        ...state.animation,
+                        sideBarActive : payload.sideBarActive
+                    }
+                };
             case "Display/Hide Header Animation" :
                 return {
                     animation : {
@@ -80,7 +88,6 @@ const StateProvider = ({ children }) => {
                     }
                 };
             case "Display/Hide StoryB Animation" :
-                console.log(payload)
                 return {
                     animation : {
                         ...state.animation,
@@ -88,7 +95,6 @@ const StateProvider = ({ children }) => {
                     }
                 };
             case "Display/Hide StoryC Animation" :
-                console.log(payload)
                 return {
                     animation : {
                         ...state.animation,

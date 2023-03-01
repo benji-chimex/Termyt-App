@@ -16,10 +16,6 @@ const robus = {
     fontFamily : `${Robus.style.fontFamily}`
 }
 
-const Termyt = {
-    height: "88vh"
-}
-
 export default function Intro() {
     const header_el = useRef(null)
     const header_typed = useRef(null)
@@ -29,7 +25,8 @@ export default function Intro() {
 
     const [breath, setBreath] = useState()
 
-    const { dispatch } = useContext(store)
+    const { state, dispatch } = useContext(store)
+    const { footerActive } = state.animation
     
     useEffect(() => {
         const breath = {
@@ -90,6 +87,10 @@ export default function Intro() {
         })
     }
 
+    const handleMint = (e) => {
+        e.preventDefault()
+    }
+
     return (
       <>
         <main style={breath} className="" ref={main}>
@@ -99,9 +100,12 @@ export default function Intro() {
                         <h1 className='text-white text-8xl lg:text-9xl text-center my-2' style={robus} ref={header_el}/>
                         <span className='text-white text-center text-xl lg:text-2xl' style={cold} ref={span_el}/>
                     </div>
-                    <div className="justify-self-center relative animate-bounce cursor-pointer self-center" onClick={handleHeader}>
+                    <div className="justify-self-center relative animate-bounce cursor-pointer self-center"
+                     onClick={footerActive ? handleMint : handleHeader}>
                         <Image src={button} alt="Let's Go"/>
-                        <h1 className="absolute text-3xl top-5 left-14" style={cold}>Start</h1>
+                        <h1 className="absolute text-3xl top-5 left-14" style={cold}>
+                            {footerActive ? "Mint" : "Start"}
+                        </h1>
                     </div>
                 </div>
             </div>
