@@ -14,20 +14,14 @@ const right = {
 export default function Footer () {
     return (
         <>
-            <footer className='h-10 pt-2'>
+            <footer className='h-10 pt-3'>
                 <div className="flex flex-row items-center">
                     <div className="basis-1/4"></div>
                     <div className="basis-1/2">
                         <div className="grid grid-cols-3 items-center justify-center">
-                            <div className="flex justify-center">
-                                <h1 style={right}>&copy; 2023</h1>
-                            </div>
-                            <div className="flex justify-center">
-                                <h1 style={right}>TechBlitz Ltd</h1>
-                            </div>
-                            <div className="flex justify-center">
-                                <h1 style={right}>All Rights Reserved</h1>
-                            </div>
+                            <h1 style={right} className="justify-self-center">&copy; 2023</h1>
+                            <h1 style={right} className="justify-self-center">TechBlitz Ltd</h1>
+                            <h1 style={right} className="justify-self-center">All Rights Reserved</h1>
                         </div>
                     </div>
                     <div className="basis-1/4"></div>

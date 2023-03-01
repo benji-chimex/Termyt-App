@@ -10,6 +10,7 @@ import termyt from "../../public/images/termyt-colony.jpg"
 import road_map from '../../public/images/roadmap.svg'
 import Footer from "@/components/Footer"
 import SideNav from "@/components/SideNav"
+import { Italiana } from "@next/font/google"
 
 const Termyt = {
   backgroundImage: `url(${termyt.src})`,
@@ -59,15 +60,15 @@ export default function Home() {
   useEffect(() => {
     if(footerActive) {
       let width = {}
-      if(div.current.clientWidth < 1024) {
-        width = {
-          height : "215vh"
-        }
-      } else if(div.current.clientWidth < 640) {
+      if(div.current.clientWidth < 640) {
         width = {
           height : "200vh"
+        }
+      } else if(div.current.clientWidth < 1024) {
+        width = {
+          height : "215vh"
         } 
-      } else {
+      } else if(div.current.clientWidth > 1024) {
         width = {
           height : "135vh"
         } 

@@ -1,10 +1,10 @@
 import local from '@next/font/local'
 import HeaderImg from '../../public/images/header.svg'
 import menu from '../../public/images/menu.png'
+import logo from '../../public/images/logo.png'
 import Image from 'next/image'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { store } from '@/store'
-import { useAccount, useConnect } from 'wagmi'
 import { Web3Button } from '@web3modal/react'
 
 const Cold_Warm = local({ src : "../../public/fonts/Cold_Warm.otf" })
@@ -46,11 +46,9 @@ export default function Header() {
   return (
     <>
       <header className="bg-gray-900 bg-center bg-cover bg-no-repeat" style={header_img}>
-        <div className="flex flex-row items-center px-3 lg:px-5 lg:py-3 py-2">
-          <div className="basis-1/4">
-            <h1 className="text-5xl text-start text-white" style={robus}>
-              <a>Termyt</a>
-            </h1>
+        <div className="flex flex-row items-center px-3 lg:px-5">
+          <div className="basis-1/4 justify-self-start">
+            <Image src={logo} alt="Logo" width={150} height={130}/>
           </div>
           <div className="basis-1/2 lg:hidden"></div>
           <div className="hidden basis-1/2 lg:block">
