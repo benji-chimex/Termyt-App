@@ -13,7 +13,7 @@ const cold = {
 
 export default function SideNav () {
     const { state, dispatch } = useContext(store)
-    const { showSideBar } = state.animation
+    const { showSideBar, footerActive } = state.animation
 
     const handleClose = (e) => {
         e.preventDefault()
@@ -24,16 +24,18 @@ export default function SideNav () {
             showSideBar : false
           }
         })
-        dispatch({
-            type : "Display/Hide Footer",
-            payload : {
-              footerActive : true
-            }
-        })
+        if(!footerActive) {
+            dispatch({
+                type : "Display/Hide Footer",
+                payload : {
+                  footerActive : true
+                }
+            })
+        }
     }
 
     return (
-        <div className={showSideBar ? "entrance-side absolute top-0 left-0 bg-gray-900 opacity-90 w-full"
+        <div className={showSideBar ? "entrance-side absolute top-0 left-0 bg-gray-900 opacity-90 w-full h-full"
             : "hidden"}>
             <nav className="w-full h-full z-10 relative">
                 <div className="grid grid-rows-2 gap-2 items-center h-full justify-center">

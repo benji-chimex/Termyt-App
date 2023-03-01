@@ -3,7 +3,7 @@ import HeaderImg from '../../public/images/header.svg'
 import menu from '../../public/images/menu.png'
 import logo from '../../public/images/logo.png'
 import Image from 'next/image'
-import { useContext } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { store } from '@/store'
 import { Web3Button } from '@web3modal/react'
 
@@ -25,16 +25,28 @@ const header_img = {
 
 export default function Header() {
   const { state, dispatch } = useContext(store)
+  const { footerActive } = state.animation
+
+  const header = useRef(null)
+  const [width, setWidth] = useState()
+
+  useEffect(() => {
+    const value = header.current.clientWidth < 640 ? 200 : 150
+
+    setWidth(value)
+  }, [width])
 
   const handleOpen = (e) => {
     e.preventDefault()
 
-    dispatch({
-      type : "Display/Hide Footer",
-      payload : {
-        footerActive : false
-      }
-    })
+    if(footerActive) {
+      dispatch({
+        type : "Display/Hide Footer",
+        payload : {
+          footerActive : false
+        }
+      })
+    }
     dispatch({
       type : "Display/Hide SideBar Animation",
       payload : {
@@ -45,10 +57,10 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-gray-900 md:bg-cover md:bg-no-repeat" style={header_img}>
+      <header className="bg-gray-900 md:bg-cover md:bg-no-repeat" style={header_img} ref={header}>
         <div className="flex flex-row items-center px-3 lg:px-5">
           <div className="basis-1/4 justify-self-start">
-            <Image src={logo} alt="Logo" width={150} height={130}/>
+            <Image src={logo} alt="Logo" width={width} height={130}/>
           </div>
           <div className="basis-1/2 lg:hidden"></div>
           <div className="hidden basis-1/2 lg:block">

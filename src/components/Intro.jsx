@@ -108,17 +108,24 @@ export default function Intro() {
     const handleMint = (e) => {
         e.preventDefault()
 
-        write?.()
+        dispatch({
+            type : "Display/Hide Mint",
+            payload : {
+                mintActive : true
+            }
+        })
 
-        if(isLoading) {
-            console.log("Loading")
-        }
-        if(isError) {
-            console.log(error)
-        }
-        if(isSuccess) {
-            console.log(data)
-        }
+        // write?.()
+
+        // if(isLoading) {
+        //     console.log("Loading")
+        // }
+        // if(isError) {
+        //     console.log(error)
+        // }
+        // if(isSuccess) {
+        //     console.log(data)
+        // }
     }
 
     return (

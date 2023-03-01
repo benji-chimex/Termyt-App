@@ -9,6 +9,7 @@ const initialState = {
         footerActive : false,
         sideBarActive : false,
         storiesActive : false,
+        mintActive : false,
         showHeader : false,
         showStoryA : false,
         showStoryB : false,
@@ -71,6 +72,13 @@ const StateProvider = ({ children }) => {
                     animation : {
                         ...state.animation,
                         sideBarActive : payload.sideBarActive
+                    }
+                };
+            case "Display/Hide Mint" :
+                return {
+                    animation : {
+                        ...state.animation,
+                        mintActive : payload.mintActive
                     }
                 };
             case "Display/Hide Header Animation" :

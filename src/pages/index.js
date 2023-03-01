@@ -11,6 +11,7 @@ import road_map from '../../public/images/roadmap.svg'
 import Footer from "@/components/Footer"
 import SideNav from "@/components/SideNav"
 import { Italiana } from "@next/font/google"
+import Mint from "@/components/Mint"
 
 const Termyt = {
   backgroundImage: `url(${termyt.src})`,
@@ -87,6 +88,7 @@ export default function Home() {
           <Intro/>
         </div>
         <SideNav/>
+        <Mint/>
       </div>}
       {storiesActive && <div>
         {storyAActive && <StoryA header={story[0].header} paragraph={story[0].paragraph}/>}
