@@ -7,7 +7,7 @@ import { avalanche, avalancheFuji } from 'wagmi/chains'
 
 const projectId = "e283e02dc6922cf2ea683a1414f04c39"
 
-const chains = [avalanche, avalancheFuji]
+const chains = [avalancheFuji]
 
 const { provider } = configureChains(chains, [walletConnectProvider({ projectId })])
 

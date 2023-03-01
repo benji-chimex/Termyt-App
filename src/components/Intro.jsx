@@ -2,11 +2,8 @@ import button from '../../public/images/button.svg'
 import local from '@next/font/local'
 import Image from 'next/image'
 import { useEffect, useRef, useContext, useState } from 'react'
-import { useContractWrite, usePrepareContractWrite } from 'wagmi'
-import ABI from '../../public/abi/Termyt.json'
 import Typed from 'typed.js'
 import { store } from '@/store'
-import { ethers } from 'ethers'
 
 const Cold_Warm = local({ src : "../../public/fonts/Cold_Warm.otf" })
 const Robus = local({ src : "../../public/fonts/Robus.otf" })
@@ -30,21 +27,6 @@ export default function Intro() {
 
     const { state, dispatch } = useContext(store)
     const { footerActive } = state.animation
-
-    const abi = JSON.stringify(ABI)
-    const termytABI = JSON.parse(abi).abi
-
-    const { config } = usePrepareContractWrite({
-        address : "0x550935599A5a645F25DE404F6F0BBb171E603765",
-        abi : termytABI,
-        functionName : "mint",
-        args : [1],
-        overrides : {
-            value : ethers.utils.parseEther("1")
-        }
-    })
-
-    const { data, isLoading, isSuccess, isError, write } = useContractWrite(config)
     
     useEffect(() => {
         const breath = {
@@ -114,18 +96,6 @@ export default function Intro() {
                 mintActive : true
             }
         })
-
-        // write?.()
-
-        // if(isLoading) {
-        //     console.log("Loading")
-        // }
-        // if(isError) {
-        //     console.log(error)
-        // }
-        // if(isSuccess) {
-        //     console.log(data)
-        // }
     }
 
     return (

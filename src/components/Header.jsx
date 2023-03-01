@@ -31,7 +31,7 @@ export default function Header() {
   const [width, setWidth] = useState()
 
   useEffect(() => {
-    const value = header.current.clientWidth < 640 ? 200 : 150
+    const value = header.current.clientWidth < 640 ? 300 : 150
 
     setWidth(value)
   }, [width])
