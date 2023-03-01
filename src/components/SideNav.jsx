@@ -24,12 +24,18 @@ export default function SideNav () {
             showSideBar : false
           }
         })
+        dispatch({
+            type : "Display/Hide Footer",
+            payload : {
+              footerActive : true
+            }
+        })
     }
 
     return (
         <div className={showSideBar ? "entrance-side absolute top-0 left-0 bg-gray-900 opacity-90 w-full"
             : "hidden"}>
-            <nav className="w-full h-screen z-10 relative">
+            <nav className="w-full h-full z-10 relative">
                 <div className="grid grid-rows-2 gap-2 items-center h-full justify-center">
                     <div className="grid grid-rows-3 gap-6 mt-6">
                         <div className="text-4xl py-6 text-white text-center cursor-pointer" style={cold}>
