@@ -43,7 +43,7 @@ export default function Faq() {
                         </div>
                         <div className="flip-card-back rounded-lg bg-amber-500 p-5">
                             <h1 style={cold} className="text-xl md:text-2xl text-center mt-10 mb-5">What is the Total Supply of the Termyt Collection?</h1>
-                            <p style={right} className="text-lg md:text-xl mx-4 my-2">
+                            <p style={right} className="text-sm md:text-xl mx-4 my-2">
                                 The Total Supply of the Termyt Collection is 5000. There are 1500 available for 
                                 Pre-Sale while the remaining 3500 is available for Public mint.
                             </p>
@@ -60,7 +60,7 @@ export default function Faq() {
                         </div>
                         <div className="flip-card-back rounded-lg bg-amber-500 p-5">
                             <h1 style={cold} className="text-xl md:text-2xl text-center mt-10 mb-5">What is the price of a Termyt NFT?</h1>
-                            <p style={right} className="text-lg md:text-xl mx-4 my-2">
+                            <p style={right} className="text-sm md:text-xl mx-4 my-2">
                                 The Price of a Termyt NFT is 1 AVAX. The cost of gas for minting is variable 
                                 but gas fees on the avalanche blockchain is low.  
                             </p>
@@ -77,7 +77,7 @@ export default function Faq() {
                         </div>
                         <div className="flip-card-back rounded-lg bg-amber-500 p-5">
                             <h1 style={cold} className="text-xl md:text-2xl text-center mt-10 mb-5">What is Tri-Token Liquidity?</h1>
-                            <p style={right} className="text-lg md:text-xl mx-4 my-2">
+                            <p style={right} className="text-sm md:text-xl mx-4 my-2">
                                 Tri-Token Liquidity is a liquidity efficient system in the Termyt ecosystem
                                 consisting of three tokens : The Termyt Collection, the $DUNG token and the
                                 $LAVA token.
@@ -95,7 +95,7 @@ export default function Faq() {
                         </div>
                         <div className="flip-card-back rounded-lg bg-amber-500 p-5">
                             <h1 style={cold} className="text-xl md:text-2xl text-center mt-10 mb-5">Are there any giveaways like airdrops or free mint?</h1>
-                            <p style={right} className="text-lg md:text-xl mx-4 my-2">
+                            <p style={right} className="text-sm md:text-xl mx-4 my-2">
                                 There are no free mints but there are airdrops for the $DUNG token. To be eligible
                                 for the airdrop, you must mint at least 5 Termyt NFTs. To multiply your airdrop rewards,
                                 you have to refer people to mint the Termyt NFT.
@@ -113,7 +113,7 @@ export default function Faq() {
                         </div>
                         <div className="flip-card-back rounded-lg bg-amber-500 p-5">
                             <h1 style={cold} className="text-xl md:text-2xl text-center mt-10 mb-5">Why are there no Socials for the Termyt Ecosystem?</h1>
-                            <p style={right} className="text-lg md:text-xl mx-4 my-2">
+                            <p style={right} className="text-sm md:text-xl mx-4 my-2">
                                 The Socials for the Termyt Ecosystem is coming soon after Pre-Sale. 
                             </p>
                         </div>

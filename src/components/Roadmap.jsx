@@ -57,8 +57,8 @@ export default function Roadmap () {
                                 <div className="grid justify-center">
                                     <Image src={logo} alt="Logo" width={120}/>
                                 </div>
-                                <h1 style={cold} className="text-5xl my-10">MARCH 2023</h1>
-                                <h1 style={cold} className="text-5xl my-10">NFTs LAUNCH</h1>
+                                <h1 style={cold} className="text-2xl md:text-5xl my-10">MARCH 2023</h1>
+                                <h1 style={cold} className="text-2xl md:text-5xl my-10">NFTs LAUNCH</h1>
                             </div>
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
                                 <p style={right} className="text-xl md:text-2xl mx-4 my-2">
@@ -74,8 +74,8 @@ export default function Roadmap () {
                                 <div className="grid justify-center">
                                     <Image src={logo} alt="Logo" width={120}/>
                                 </div>
-                                <h1 style={cold} className="text-5xl my-10">APRIL 2023</h1>
-                                <h1 style={cold} className="text-5xl my-10">$DUNG LAUNCH</h1>
+                                <h1 style={cold} className="text-2xl md:text-5xl my-10">APRIL 2023</h1>
+                                <h1 style={cold} className="text-2xl md:text-5xl my-10">$DUNG LAUNCH</h1>
                             </div>
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
                                 <p style={right} className="text-xl md:text-2xl mx-4 my-2">
@@ -91,8 +91,8 @@ export default function Roadmap () {
                                 <div className="grid justify-center">
                                     <Image src={logo} alt="Logo" width={120}/>
                                 </div>
-                                <h1 style={cold} className="text-5xl my-10">JUNE 2023</h1>
-                                <h1 style={cold} className="text-5xl my-10">$LAVA LAUNCH</h1>
+                                <h1 style={cold} className="text-2xl md:text-5xl my-10">JUNE 2023</h1>
+                                <h1 style={cold} className="text-2xl md:text-5xl my-10">$LAVA LAUNCH</h1>
                             </div>
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
                                 <p style={right} className="text-xl md:text-2xl mx-4 my-2">
@@ -108,8 +108,8 @@ export default function Roadmap () {
                                 <div className="grid justify-center">
                                     <Image src={logo} alt="Logo" width={120}/>
                                 </div>
-                                <h1 style={cold} className="text-5xl my-10">AUG 2023</h1>
-                                <h1 style={cold} className="text-5xl my-10">GAME LAUNCH</h1>
+                                <h1 style={cold} className="text-2xl md:text-5xl my-10">AUG 2023</h1>
+                                <h1 style={cold} className="text-2xl md:text-5xl my-10">GAME LAUNCH</h1>
                             </div>
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
                                 <p style={right} className="text-xl md:text-2xl mx-4 my-2">
