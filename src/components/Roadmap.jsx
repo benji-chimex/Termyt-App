@@ -47,8 +47,8 @@ export default function Roadmap () {
         <>
             <div className="p-10 w-full">
                 <div className="text-center pb-5">
-                    <h1 style={cold} className="text-white text-7xl my-2" ref={header_el}/>
-                    <span style={right} className="text-white text-2xl my-2" ref={paragraph_el}/>
+                    <h1 style={cold} className="text-white text-5xl md:text-7xl my-2" ref={header_el}/>
+                    <span style={right} className="text-white text-xl md:text-2xl my-2" ref={paragraph_el}/>
                 </div>
                 <div className="grid grid-rows-4 gap-12 justify-center p-5 w-full">
                     <div className="flip-card">
@@ -61,7 +61,7 @@ export default function Roadmap () {
                                 <h1 style={cold} className="text-5xl my-10">NFTs LAUNCH</h1>
                             </div>
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
-                                <p style={right} className="text-xl mx-4 my-2">
+                                <p style={right} className="text-xl md:text-2xl mx-4 my-2">
                                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam perferendis odit mollitia optio 
                                     perspiciatis. Aspernatur quasi a odit.
                                 </p>
@@ -78,7 +78,7 @@ export default function Roadmap () {
                                 <h1 style={cold} className="text-5xl my-10">$DUNG LAUNCH</h1>
                             </div>
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
-                                <p style={right} className="text-xl mx-4 my-2">
+                                <p style={right} className="text-xl md:text-2xl mx-4 my-2">
                                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam perferendis odit mollitia optio 
                                     perspiciatis. Aspernatur quasi a odit.
                                 </p>
@@ -95,7 +95,7 @@ export default function Roadmap () {
                                 <h1 style={cold} className="text-5xl my-10">$LAVA LAUNCH</h1>
                             </div>
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
-                                <p style={right} className="text-xl mx-4 my-2">
+                                <p style={right} className="text-xl md:text-2xl mx-4 my-2">
                                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam perferendis odit mollitia optio 
                                     perspiciatis. Aspernatur quasi a odit.
                                 </p>
@@ -112,7 +112,7 @@ export default function Roadmap () {
                                 <h1 style={cold} className="text-5xl my-10">GAME LAUNCH</h1>
                             </div>
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
-                                <p style={right} className="text-xl mx-4 my-2">
+                                <p style={right} className="text-xl md:text-2xl mx-4 my-2">
                                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam perferendis odit mollitia optio 
                                     perspiciatis. Aspernatur quasi a odit.
                                 </p>
