@@ -45,14 +45,14 @@ export default function Roadmap () {
     
     return (
         <>
-            <div className="p-10">
+            <div className="p-10 w-full">
                 <div className="text-center pb-5">
                     <h1 style={cold} className="text-white text-7xl my-2" ref={header_el}/>
                     <span style={right} className="text-white text-2xl my-2" ref={paragraph_el}/>
                 </div>
-                <div className="grid grid-rows-4 gap-12 justify-center p-5">
+                <div className="grid grid-rows-4 gap-12 justify-center p-5 w-full">
                     <div className="flip-card">
-                        <div className="flip-card-inner">
+                        <div className="flip-card-inner ">
                             <div className="flip-card-front clip rounded-lg bg-amber-500 p-5">
                                 <div className="grid justify-center">
                                     <Image src={logo} alt="Logo" width={120}/>

@@ -32,7 +32,7 @@ export default function Faq() {
                 <h1 style={cold} className="text-white text-7xl my-2">FAQs</h1>
                 <span style={right} className="text-white text-2xl my-2">All your questions are answerd here...</span>
             </div>
-            <div className="grid grid-rows-5 gap-12 justify-center p-5">
+            <div className="grid grid-rows-5 gap-12 justify-center p-5 w-full">
                 <div className="flip-card">
                     <div className="flip-card-inner">
                         <div className="flip-card-front rounded-lg bg-amber-500 p-5">

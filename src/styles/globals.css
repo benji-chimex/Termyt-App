@@ -9,6 +9,12 @@
     perspective: 1000px;
 }
 
+@media only screen and(max-width : 640px) {
+    .flip-card {
+        width: 300px;
+    }
+}
+
 .flip-card-inner {
     position: relative;
     width: 100%;
