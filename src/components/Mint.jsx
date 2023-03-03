@@ -66,7 +66,7 @@ export default function Mint () {
         functionName : "mint",
         args : [BigNumber.from(amount)],
         overrides : {
-            value : ethers.utils.parseEther("0")
+            value : ethers.utils.parseEther("1")
         }
     })
 
@@ -80,14 +80,14 @@ export default function Mint () {
         listener(owner, amount) {
             console.log(owner, amount)
             if(status == "success") {
-                console.log(data)
-                console.log(status)
+                // console.log(data)
+                // console.log(status)
                 setValue("")
                 setIsMinted(true)
                 setMinted(true)
             } else if(status == "error") {
-                console.log(error.name, error.message)
-                console.log(status)
+                // console.log(error.name, error.message)
+                // console.log(status)
                 setValue("")
                 setIsMinted(true)
                 setError(true)
@@ -123,7 +123,7 @@ export default function Mint () {
     return (
         <div className={mintActive ? "entrance absolute md:inset-1/4 top-1/4 left-10 w-4/5 h-1/2 md:h-1/2 md:w-1/2 bg-gray-900 opacity-90" 
         : "hidden"}>
-            <main className='relative p-5 h-full'>
+            <main className='relative p-16 md:p-5 h-full'>
                 {!isMinted && isConnected && <div className="grid grid-rows-3 gap-2 justify-center">
                     <div className="">
                         <h1 style={cold} className="text-white text-xl md:text-2xl m-3">Mint your Termyt NFT</h1>

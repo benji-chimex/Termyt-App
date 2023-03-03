@@ -61,7 +61,7 @@ export default function Roadmap () {
                                 <h1 style={cold} className="text-2xl md:text-5xl my-10">NFTs LAUNCH</h1>
                             </div>
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
-                                <p style={right} className="text-xl md:text-2xl mx-4 my-2">
+                                <p style={right} className="text-md md:text-2xl mx-4 my-2">
                                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam perferendis odit mollitia optio 
                                     perspiciatis. Aspernatur quasi a odit.
                                 </p>
@@ -78,7 +78,7 @@ export default function Roadmap () {
                                 <h1 style={cold} className="text-2xl md:text-5xl my-10">$DUNG LAUNCH</h1>
                             </div>
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
-                                <p style={right} className="text-xl md:text-2xl mx-4 my-2">
+                                <p style={right} className="text-md md:text-2xl mx-4 my-2">
                                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam perferendis odit mollitia optio 
                                     perspiciatis. Aspernatur quasi a odit.
                                 </p>
@@ -95,7 +95,7 @@ export default function Roadmap () {
                                 <h1 style={cold} className="text-2xl md:text-5xl my-10">$LAVA LAUNCH</h1>
                             </div>
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
-                                <p style={right} className="text-xl md:text-2xl mx-4 my-2">
+                                <p style={right} className="text-md md:text-2xl mx-4 my-2">
                                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam perferendis odit mollitia optio 
                                     perspiciatis. Aspernatur quasi a odit.
                                 </p>
@@ -112,7 +112,7 @@ export default function Roadmap () {
                                 <h1 style={cold} className="text-2xl md:text-5xl my-10">GAME LAUNCH</h1>
                             </div>
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
-                                <p style={right} className="text-xl md:text-2xl mx-4 my-2">
+                                <p style={right} className="text-md md:text-2xl mx-4 my-2">
                                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam perferendis odit mollitia optio 
                                     perspiciatis. Aspernatur quasi a odit.
                                 </p>
