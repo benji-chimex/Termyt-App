@@ -6,21 +6,13 @@ import Image from 'next/image'
 import { useContext, useEffect, useRef, useState } from 'react'
 import { store } from '@/store'
 import { Web3Button } from '@web3modal/react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const Cold_Warm = local({ src : "../../public/fonts/Cold_Warm.otf" })
-const Robus = local({ src : "../../public/fonts/Robus.otf" })
 
 const cold = {
   fontFamily : `${Cold_Warm.style.fontFamily}`
-}
-
-const robus = {
-  fontFamily : `${Robus.style.fontFamily}`
-}
-
-const header_img = {
-  backgroundImage: `url(${HeaderImg.src})`,
-  height: "11vh"
 }
 
 export default function Header() {
@@ -30,26 +22,29 @@ export default function Header() {
   const header = useRef(null)
   const [width, setWidth] = useState()
   const [height, setHeight] = useState()
+  const [length, setLength] = useState()
+
+  const router = useRouter()
 
   useEffect(() => {
     const width = header.current.clientWidth < 640 ? 200 : 150
     const height = header.current.clientWidth < 640 ? 160 : 130
+    const length = header.current.clientWidth < 640 ? "9vh" : "11vh"
 
     setWidth(width)
     setHeight(height)
+    setLength(length)
   }, [width])
 
   const handleOpen = (e) => {
     e.preventDefault()
 
-    if(footerActive) {
-      dispatch({
-        type : "Display/Hide Footer",
-        payload : {
-          footerActive : false
-        }
-      })
-    }
+    dispatch({
+      type : "Display/Hide SideBar",
+      payload : {
+        sideBarActive : true
+      }
+    })
     dispatch({
       type : "Display/Hide SideBar Animation",
       payload : {
@@ -60,7 +55,8 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-gray-900 md:bg-cover md:bg-no-repeat" style={header_img} ref={header}>
+      <header className="bg-gray-900 md:bg-cover md:bg-no-repeat shadow-xl"
+       style={{backgroundImage: `url(${HeaderImg.src})`, height: length}} ref={header}>
         <div className="flex flex-row items-center px-3 lg:px-5">
           <div className="basis-1/4 justify-self-start">
             <Image src={logo} alt="Logo" width={width} height={height}/>
@@ -68,14 +64,20 @@ export default function Header() {
           <div className="basis-1/2 lg:hidden"></div>
           <div className="hidden basis-1/2 lg:block">
             <div className="grid grid-cols-3 gap-4">
-              <div className="text-2xl text-white text-center" style={cold}>
-                <a>HOME</a>
+              <div className="text-2xl text-center" style={cold}>
+                <a className={router.pathname == "/" ? "text-amber-300" : "text-white hover:text-amber-300"}>
+                  <Link href="/">HOME</Link>
+                </a>
               </div>
-              <div className="text-2xl text-white text-center" style={cold}>
-                <a>WHITEPAPER</a>
+              <div className="text-2xl text-center" style={cold}>
+                <a className={router.pathname == "/whitepaper" ? "text-amber-300" : "text-white hover:text-amber-300"}>
+                  <Link href="/whitepaper">WHITEPAPER</Link>
+                </a>
               </div>
-              <div className="text-2xl text-white text-center" style={cold}>
-                <a>FAQ</a>
+              <div className="text-2xl text-center" style={cold}>
+                <a className={router.pathname == "/faq" ? "text-amber-300" : "text-white hover:text-amber-300"}>
+                  <Link href="/faq">FAQ</Link>
+                </a>
               </div>
             </div>
           </div>

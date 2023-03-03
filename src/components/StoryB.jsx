@@ -59,7 +59,7 @@ export default function Story(props) {
                   storyBActive : false
               }
           })
-      }, 1000)
+      }, 500)
       dispatch({
         type : "Display/Hide StoryC",
         payload : {

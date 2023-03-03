@@ -5,12 +5,11 @@ import StoryA from "@/components/StoryA"
 import StoryB from "@/components/StoryB"
 import StoryC from "@/components/StoryC"
 import { store } from "@/store"
-import { useContext, useEffect, useRef, useState } from "react"
+import { useContext } from "react"
 import termyt from "../../public/images/termyt-colony.jpg"
 import road_map from '../../public/images/roadmap.svg'
 import Footer from "@/components/Footer"
 import SideNav from "@/components/SideNav"
-import { Italiana } from "@next/font/google"
 import Mint from "@/components/Mint"
 
 const Termyt = {
@@ -51,55 +50,33 @@ export default function Home() {
     storyBActive, 
     storyCActive, 
     footerActive,
+    sideBarActive,
     showHeader
   } = state.animation
 
-  const [breath, setBreath] = useState({})
-
-  const div = useRef(null)
-
-  useEffect(() => {
-    if(footerActive) {
-      let width = {}
-      if(div.current.clientWidth < 640) {
-        width = {
-          height : "175vh"
-        }
-      } else if(div.current.clientWidth < 1024) {
-        width = {
-          height : "215vh"
-        } 
-      } else if(div.current.clientWidth > 1024) {
-        width = {
-          height : "135vh"
-        } 
-      }
-  
-      setBreath(width)
-    }
-  }, [footerActive])
-
   return (
     <>
-      {headerActive && <div className="relative w-full">
-        <div style={Termyt} className={showHeader ? "entrance-out bg-cover bg-no-repeat bg-center" 
-        : "entrance bg-cover bg-no-repeat bg-center"}>
-          <Header/>
-          <Intro/>
-        </div>
-        <SideNav/>
-        <Mint/>
-      </div>}
-      {storiesActive && <div>
-        {storyAActive && <StoryA header={story[0].header} paragraph={story[0].paragraph}/>}
-        {storyBActive && <StoryB header={story[1].header} paragraph={story[1].paragraph}/>}
-        {storyCActive && <StoryC header={story[2].header} paragraph={story[2].paragraph}/>}
-      </div>}
-      {footerActive && <div style={{backgroundImage : footer.backgroundImage, height : breath.height}} 
-        className="bg-contain bg-repeat bg-center bg-gray-900" ref={div}>
-        <Roadmap/>
-      </div>}
-      {footerActive && <Footer/>}
+      <div className="relative">
+        {headerActive && <div className="relative w-full overflow-hidden">
+          <div style={Termyt} className={showHeader ? "entrance-out bg-cover bg-no-repeat bg-center" 
+          : "entrance bg-cover bg-no-repeat bg-center"}>
+            <Header/>
+            <Intro/>
+          </div>
+          <Mint/>
+        </div>}
+        {storiesActive && <div>
+          {storyAActive && <StoryA header={story[0].header} paragraph={story[0].paragraph}/>}
+          {storyBActive && <StoryB header={story[1].header} paragraph={story[1].paragraph}/>}
+          {storyCActive && <StoryC header={story[2].header} paragraph={story[2].paragraph}/>}
+        </div>}
+        {footerActive && <div style={{backgroundImage : footer.backgroundImage}} 
+          className="bg-contain bg-repeat bg-gray-900">
+          <Roadmap/>
+        </div>}
+        {footerActive && <Footer/>}
+        {sideBarActive && <SideNav/>}
+      </div>
     </>
   )
 }

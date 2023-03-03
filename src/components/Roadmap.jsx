@@ -3,6 +3,8 @@ import { Righteous } from '@next/font/google'
 import { useEffect, useRef, useContext } from 'react'
 import Typed from 'typed.js'
 import { store } from '@/store'
+import logo from '../../public/images/logo.png'
+import Image from 'next/image'
 
 const Cold_Warm = local({ src : "../../public/fonts/Cold_Warm.otf" })
 
@@ -42,64 +44,83 @@ export default function Roadmap () {
     }, [])
     
     return (
-        <div className="block">
-            <main className="relative">
-                <div className="absolute top-10 left-20 max-w-min">
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl text-white" style={cold} ref={header_el}/>
+        <>
+            <div className="p-10">
+                <div className="text-center pb-5">
+                    <h1 style={cold} className="text-white text-7xl my-2" ref={header_el}/>
+                    <span style={right} className="text-white text-2xl my-2" ref={paragraph_el}/>
                 </div>
-                <div className="absolute top-32 left-24">
-                    <p className="text-lg md:text-xl lg:text-2xl text-white max-w-sm md:max-w-md :max-w-lg" style={right} ref={paragraph_el}/>
-                </div>
-                <div className="absolute top-60 w-full">
-                    <div className="lg:relative grid grid-rows-4 gap-2 justify-center">
-                        <div className="hover:animate-bounce lg:absolute lg:top-0 lg:left-20 w-80 h-56 
-                            clip bg-amber-500 border-4 border-black m-5">
-                            <div className="px-6 py-4">
-                                <h1 style={cold} className="text-sm">MARCH 2023</h1>
-                                <h1 style={cold} className="text-xl">NFTs LAUNCH</h1>
-                                <p style={right} className="">
+                <div className="grid grid-rows-4 gap-12 justify-center p-5">
+                    <div className="flip-card">
+                        <div className="flip-card-inner">
+                            <div className="flip-card-front clip rounded-lg bg-amber-500 p-5">
+                                <div className="grid justify-center">
+                                    <Image src={logo} alt="Logo" width={120}/>
+                                </div>
+                                <h1 style={cold} className="text-5xl my-10">MARCH 2023</h1>
+                                <h1 style={cold} className="text-5xl my-10">NFTs LAUNCH</h1>
+                            </div>
+                            <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
+                                <p style={right} className="text-xl mx-4 my-2">
                                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam perferendis odit mollitia optio 
                                     perspiciatis. Aspernatur quasi a odit.
                                 </p>
                             </div>
                         </div>
-                        <div className="hover:animate-bounce lg:absolute lg:top-8 lg:right-20 w-80 h-56
-                         clip bg-amber-500 border-4 border-black m-5">
-                            <div className="px-6 py-4">
-                                <h1 style={cold} className="text-sm">APRIL 2023</h1>
-                                <h1 style={cold} className="text-xl">$MOLD LAUNCH</h1>
-                                <p style={right} className="">
+                    </div>
+                    <div className="flip-card">
+                        <div className="flip-card-inner">
+                            <div className="flip-card-front clip rounded-lg bg-amber-500 p-5">
+                                <div className="grid justify-center">
+                                    <Image src={logo} alt="Logo" width={120}/>
+                                </div>
+                                <h1 style={cold} className="text-5xl my-10">APRIL 2023</h1>
+                                <h1 style={cold} className="text-5xl my-10">$DUNG LAUNCH</h1>
+                            </div>
+                            <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
+                                <p style={right} className="text-xl mx-4 my-2">
                                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam perferendis odit mollitia optio 
                                     perspiciatis. Aspernatur quasi a odit.
                                 </p>
                             </div>
                         </div>
-                        <div className="hover:animate-bounce lg:absolute lg:top-56 lg:left-96 w-80 h-56 clip
-                         bg-amber-500 border-4 border-black m-5">
-                            <div className="px-6 py-4">
-                                <h1 style={cold} className="text-sm">JUNE 2023</h1>
-                                <h1 style={cold} className="text-xl">$LAVA LAUNCH</h1>
-                                <p style={right} className="">
+                    </div>
+                    <div className="flip-card">
+                        <div className="flip-card-inner">
+                            <div className="flip-card-front clip rounded-lg bg-amber-500 p-5">
+                                <div className="grid justify-center">
+                                    <Image src={logo} alt="Logo" width={120}/>
+                                </div>
+                                <h1 style={cold} className="text-5xl my-10">JUNE 2023</h1>
+                                <h1 style={cold} className="text-5xl my-10">$LAVA LAUNCH</h1>
+                            </div>
+                            <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
+                                <p style={right} className="text-xl mx-4 my-2">
                                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam perferendis odit mollitia optio 
                                     perspiciatis. Aspernatur quasi a odit.
                                 </p>
                             </div>
                         </div>
-                        <div className="hover:animate-bounce lg:absolute lg:top-80 lg:right-48 w-80 h-56 clip
-                         bg-amber-500 border-4 border-black m-5">
-                            <div className="px-6 py-4">
-                                <h1 style={cold} className="text-sm">AUG 2023</h1>
-                                <h1 style={cold} className="text-xl">GAME LAUNCH</h1>
-                                <p style={right} className="">
+                    </div>
+                    <div className="flip-card">
+                        <div className="flip-card-inner">
+                            <div className="flip-card-front clip rounded-lg bg-amber-500 p-5">
+                                <div className="grid justify-center">
+                                    <Image src={logo} alt="Logo" width={120}/>
+                                </div>
+                                <h1 style={cold} className="text-5xl my-10">AUG 2023</h1>
+                                <h1 style={cold} className="text-5xl my-10">GAME LAUNCH</h1>
+                            </div>
+                            <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
+                                <p style={right} className="text-xl mx-4 my-2">
                                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam perferendis odit mollitia optio 
                                     perspiciatis. Aspernatur quasi a odit.
                                 </p>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
-            </main>
-        </div>
+            </div>
+        </>
     )
 }

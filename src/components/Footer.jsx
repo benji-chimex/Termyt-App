@@ -14,17 +14,17 @@ const right = {
 export default function Footer () {
     return (
         <>
-            <footer className='h-10 pt-3'>
+            <footer className='h-10 pt-3 px-5'>
                 <div className="flex flex-row items-center">
-                    <div className="basis-1/4"></div>
-                    <div className="basis-1/2">
-                        <div className="grid grid-cols-3 items-start justify-start lg:justify-center">
-                            <h1 style={right} className="justify-self-start lg:justify-self-center">&copy; 2023</h1>
-                            <h1 style={right} className="justify-self-start lg:justify-self-center">TechBlitz Ltd</h1>
-                            <h1 style={right} className="justify-self-start lg:justify-self-center">All Rights Reserved</h1>
-                        </div>
+                    <div className="basis-1/3 grid justify-center">
+                        <h1 style={right} className="">&copy; 2023</h1>
                     </div>
-                    <div className="basis-1/4"></div>
+                    <div className="basis-1/3 grid justify-center">
+                        <h1 style={right} className="">TechBlitz Ltd</h1>
+                    </div>
+                    <div className="basis-1/3 grid justify-center">
+                        <h1 style={right} className="">All Rights Reserved</h1>
+                    </div>
                 </div>
             </footer>
         </>

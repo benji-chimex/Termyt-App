@@ -1,4 +1,5 @@
 import button from '../../public/images/button.svg'
+import termyt from '../../public/images/logo.png'
 import local from '@next/font/local'
 import Image from 'next/image'
 import { useEffect, useRef, useContext, useState } from 'react'
@@ -17,8 +18,6 @@ const robus = {
 }
 
 export default function Intro() {
-    const header_el = useRef(null)
-    const header_typed = useRef(null)
     const span_el = useRef(null)
     const span_typed = useRef(null)
     const main = useRef(null)
@@ -30,7 +29,7 @@ export default function Intro() {
     
     useEffect(() => {
         const breath = {
-            height : main.current.clientWidth < 640 ? "80vh" : "88vh"
+            height : main.current.clientWidth < 640 ? "81vh" : "88.5vh"
         }
 
         setBreath(breath)
@@ -40,11 +39,9 @@ export default function Intro() {
             typeSpeed : 100
         }
 
-        header_typed.current = new Typed(header_el.current, { strings : ["Termyt"], typeSpeed : 200 })
         span_typed.current = new Typed(span_el.current, options)
 
         return () => {
-            header_typed.current.destroy()
             span_typed.current.destroy()
         }
     }, [])
@@ -66,7 +63,7 @@ export default function Intro() {
                     headerActive : false
                 }
             })
-        }, 1000)
+        }, 500)
         dispatch({
             type : "Display/Hide Stories",
             payload : {
@@ -102,9 +99,11 @@ export default function Intro() {
       <>
         <main style={breath} className="" ref={main}>
             <div className="absolute inset-1/4">
-                <div className="grid grid-rows-2 gap-4 justify-center">
+                <div className="grid grid-rows-2 justify-center">
                     <div className="flex flex-col justify-center">
-                        <h1 className='text-white text-8xl lg:text-9xl text-center my-2' style={robus} ref={header_el}/>
+                        <div className="flex justify-center">
+                            <Image src={termyt} alt="Logo" width={450} height={350}/>
+                        </div>
                         <span className='text-white text-center text-xl lg:text-2xl' style={cold} ref={span_el}/>
                     </div>
                     <div className="justify-self-center relative animate-bounce cursor-pointer self-center"
