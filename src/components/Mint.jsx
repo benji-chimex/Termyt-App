@@ -123,7 +123,7 @@ export default function Mint () {
     return (
         <div className={mintActive ? "entrance absolute md:inset-1/4 top-1/4 left-10 w-4/5 h-1/2 md:h-1/2 md:w-1/2 bg-gray-900 opacity-90" 
         : "hidden"}>
-            <main className='relative p-16 md:p-5 h-full'>
+            <main className='relative p-10 md:p-5 h-full'>
                 {!isMinted && isConnected && <div className="grid grid-rows-3 gap-2 justify-center">
                     <div className="">
                         <h1 style={cold} className="text-white text-xl md:text-2xl m-3">Mint your Termyt NFT</h1>
