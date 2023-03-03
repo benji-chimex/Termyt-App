@@ -121,7 +121,7 @@ export default function Mint () {
     }
 
     return (
-        <div className={mintActive ? "entrance absolute md:inset-1/4 top-1/4 left-10 w-4/5 h-1/3 md:h-1/2 md:w-1/2 bg-gray-900 opacity-90" 
+        <div className={mintActive ? "entrance absolute md:inset-1/4 top-1/4 left-10 w-4/5 h-1/2 md:h-1/2 md:w-1/2 bg-gray-900 opacity-90" 
         : "hidden"}>
             <main className='relative p-5 h-full'>
                 {!isMinted && isConnected && <div className="grid grid-rows-3 gap-2 justify-center">
