@@ -71,7 +71,7 @@ export default function SideNav () {
           }
         })
 
-        router.push("/whitepaper")
+        router.push("/api/whitepaper")
     }
 
     const handleFaq = (e) => {

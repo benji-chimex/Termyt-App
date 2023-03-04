@@ -65,6 +65,7 @@ export default function Mint () {
         abi : termytABI,
         functionName : "mint",
         args : [BigNumber.from(amount)],
+        chainId: 43113,
         overrides : {
             value : ethers.utils.parseEther("1")
         }
@@ -77,6 +78,7 @@ export default function Mint () {
         address : "0x72C49a20378dEC1cc152aB888c5C088DbbA8cfD6",
         abi : termytABI,
         eventName : "Minted",
+        chainId: 43113,
         listener(owner, amount) {
             console.log(owner, amount)
             if(status == "success") {

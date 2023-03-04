@@ -64,20 +64,20 @@ export default function Header() {
           <div className="basis-1/2 lg:hidden"></div>
           <div className="hidden basis-1/2 lg:block">
             <div className="grid grid-cols-3 gap-4">
-              <div className="text-2xl text-center" style={cold}>
-                <a className={router.pathname == "/" ? "text-amber-300" : "text-white hover:text-amber-300"}>
+              <div className="text-2xl text-center cursor-pointer" style={cold}>
+                <div className={router.pathname == "/" ? "text-amber-300" : "text-white hover:text-amber-300"}>
                   <Link href="/">HOME</Link>
-                </a>
+                </div>
               </div>
-              <div className="text-2xl text-center" style={cold}>
-                <a className={router.pathname == "/whitepaper" ? "text-amber-300" : "text-white hover:text-amber-300"}>
-                  <Link href="/whitepaper">WHITEPAPER</Link>
-                </a>
+              <div className="text-2xl text-center cursor-pointer" style={cold}>
+                <div className={router.pathname == "/whitepaper" ? "text-amber-300" : "text-white hover:text-amber-300"}>
+                  <Link href="/api/whitepaper">WHITEPAPER</Link>
+                </div>
               </div>
-              <div className="text-2xl text-center" style={cold}>
-                <a className={router.pathname == "/faq" ? "text-amber-300" : "text-white hover:text-amber-300"}>
+              <div className="text-2xl text-center cursor-pointer" style={cold}>
+                <div className={router.pathname == "/faq" ? "text-amber-300" : "text-white hover:text-amber-300"}>
                   <Link href="/faq">FAQ</Link>
-                </a>
+                </div>
               </div>
             </div>
           </div>
