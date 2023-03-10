@@ -53,23 +53,23 @@ export default function Timer ({ deadline }) {
     return (
         <>
             <div className="m-4 text-center">
-                <h1 style={right} className="text-xl md:text-4xl text-white">PreSale Minting Starts In:</h1>
+                <h1 style={right} className="text-2xl md:text-4xl text-white">PreSale Minting Starts In:</h1>
             </div>
             <div className="grid grid-cols-4 gap-2">
-                <div className="text-center py-3 px-10 md:px-0 animate-pulse rounded-lg bg-amber-400">
-                    <p style={cold} className="text-4xl">{days}</p>
+                <div className="text-center py-3 px-6 md:px-0 animate-pulse rounded-lg bg-amber-400">
+                    <p style={cold} className="text-2xl md:text-4xl">{days}</p>
                     <p style={right} className="text-md md:text-2xl">Days</p>
                 </div>
                 <div className="text-center py-3 px-10 md:px-0 animate-pulse rounded-lg bg-amber-400">
-                    <p style={cold} className="text-4xl">{hours}</p>
+                    <p style={cold} className="text-2xl md:text-4xl">{hours}</p>
                     <p style={right} className="text-md md:text-2xl">Hours</p>
                 </div>
                 <div className="text-center py-3 px-10 md:px-0 animate-pulse rounded-lg bg-amber-400">
-                    <p style={cold} className="text-4xl">{mintues}</p>
+                    <p style={cold} className="text-2xl md:text-4xl">{mintues}</p>
                     <p style={right} className="text-md md:xt-2xl">Minutes</p>
                 </div>
                 <div className="text-center py-3 px-10 md:px-0 animate-pulse rounded-lg bg-amber-400">
-                    <p style={cold} className="text-4xl">{seconds}</p>
+                    <p style={cold} className="text-2xl md:text-4xl">{seconds}</p>
                     <p style={right} className="text-md md:text-2xl">Seconds</p>
                 </div>
             </div>
