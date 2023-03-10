@@ -4,7 +4,7 @@ import local from '@next/font/local'
 import times from '../../public/images/times.png'
 import { Righteous } from '@next/font/google'
 import Image from 'next/image'
-import { useContractWrite, usePrepareContractWrite, useAccount, useContractEvent } from 'wagmi'
+import { useContractWrite, usePrepareContractWrite, useAccount, useContractEvent, useContractRead } from 'wagmi'
 import ABI from '../../public/abi/Termyt.json'
 import { ethers, BigNumber } from 'ethers'
 
@@ -39,6 +39,7 @@ export default function Mint () {
     const [errMsg, setErrMsg] = useState("")
     const [amount, setAmount] = useState(0)
     const [minted, setMinted] = useState(false)
+    const [mintingOver, setMintingOver] = useState(false)
 
     const handleClose = (e) => {
         e.preventDefault()
@@ -63,7 +64,7 @@ export default function Mint () {
     const { isConnected, address } = useAccount()
 
     const { config } = usePrepareContractWrite({
-        address : "0x72C49a20378dEC1cc152aB888c5C088DbbA8cfD6",
+        address : "0xe25b0D245d3dF37BAA7c6500CaD18A4Bfc8e6f59",
         chainId: 43114,
         abi : termytABI,
         functionName : "mint",
@@ -74,10 +75,10 @@ export default function Mint () {
         }
     })
 
-    const { write, data, error, status } = useContractWrite(config)
+    const { write, error, status } = useContractWrite(config)
 
     useContractEvent({
-        address : "0x72C49a20378dEC1cc152aB888c5C088DbbA8cfD6",
+        address : "0xe25b0D245d3dF37BAA7c6500CaD18A4Bfc8e6f59",
         abi : termytABI,
         eventName : "Minted",
         listener(owner, amount) {
@@ -100,21 +101,32 @@ export default function Mint () {
         chainId: 43114
     })
 
+    const { data } = useContractRead({
+        address : "0xe25b0D245d3dF37BAA7c6500CaD18A4Bfc8e6f59",
+        chainId: 43114,
+        abi : termytABI,
+        functionName : "totalSupply",
+    })
+
     const handleMint = (e) => {
         e.preventDefault()
         
-        write?.()
+        if(data.toNumber() >= 1500) {
+            setMintingOver(true)
+        } else {
+            write?.()
 
-        setLoading(true)
+            setLoading(true)
 
-        setTimeout(() => {
-            if(!minted) {
-                setValue("")
-                setIsMinted(true)
-                setError(true)
-                setErrMsg("Transaction Timed Out")
-            }
-        }, 60000)
+            setTimeout(() => {
+                if(!minted) {
+                    setValue("")
+                    setIsMinted(true)
+                    setError(true)
+                    setErrMsg("Transaction Timed Out")
+                }
+            }, 60000)
+        }
     }
 
     const handleChange = (e) => {
@@ -168,6 +180,14 @@ export default function Mint () {
                     </h1>
                     <span style={right} className="text-amber-500 text-xs md:text-sm mx-4">
                         ***Click the Connect Wallet button
+                    </span>
+                </div>}
+                {mintingOver && <div className="absolute inset-y-1/3 inset-x-14">
+                    <h1 style={cold} className="text-white text-center text-3xl md:text-3xl lg:text-5xl">
+                        PreSale Minting is Over
+                    </h1>
+                    <span style={right} className="text-amber-500 text-xs md:text-sm mx-4">
+                        ***Public Minting is coming soon
                     </span>
                 </div>}
             </main>

@@ -32,19 +32,19 @@ export default function Timer ({ deadline }) {
         const interval = setInterval(() => {
             const time = Date.parse(deadline) - Date.now()
 
+            if(Date.parse(deadline) < Date.now()) {
+                dispatch({
+                    type : "Display/Hide Timer",
+                    payload : {
+                        timerActive : false
+                    }
+                })
+            }
+
             setSeconds(Math.floor((time / 1000) % 60))
             setMintues(Math.floor((time / (1000 * 60)) % 60))
             setHours(Math.floor((time / (1000 * 60 * 60)) % 24))
             setDays(Math.floor(time / (1000 * 60 * 60 * 24)))
-
-            // if(days == 0 && hours == 0 && mintues == 0 && seconds == 0) {
-            //     dispatch({
-            //         type : "Display/Hide Timer",
-            //         payload : {
-            //             timerActive : false
-            //         }
-            //     })
-            // }
         }, 1000)
 
         return () => clearInterval(interval)
