@@ -64,7 +64,7 @@ export default function Mint () {
 
     const { config } = usePrepareContractWrite({
         address : "0x72C49a20378dEC1cc152aB888c5C088DbbA8cfD6",
-        chainId: 43113,
+        chainId: 43114,
         abi : termytABI,
         functionName : "mint",
         args : [BigNumber.from(amount)],
@@ -97,7 +97,7 @@ export default function Mint () {
                 setErrMsg(error.message)
             }
         },
-        chainId: 43113
+        chainId: 43114
     })
 
     const handleMint = (e) => {

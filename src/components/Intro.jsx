@@ -105,7 +105,7 @@ export default function Intro() {
                         <div className="flex justify-center">
                             <Image src={termyt} alt="Logo" width={450} height={350}/>
                         </div>
-                        <span className='text-white text-center text-lg lg:text-3xl' style={cold} ref={span_el}/>
+                        <span className='text-white text-center text-xl lg:text-3xl' style={cold} ref={span_el}/>
                     </div>
                     {!timerActive && <div className="justify-self-center relative animate-bounce cursor-pointer self-center"
                      onClick={footerActive ? handleMint : handleHeader}>

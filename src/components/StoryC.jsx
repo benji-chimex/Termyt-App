@@ -93,7 +93,7 @@ export default function Story(props) {
             <div className="absolute mr-3 top-10 md:left-20 max-w-min">
               <h1 className="text-white text-5xl md:text-7xl" style={cold} ref={header_el}/>
             </div>
-            <div className="absolute mr-5 top-32 md:left-24">
+            <div className="absolute mr-5 top-24 md:top-32 md:left-24">
                 <p className="text-white text-lg md:text-2xl max-w-sm md:max-w-3xl" style={right} ref={paragraph_el}/>
             </div>
             <div className="absolute bottom-20 md:bottom-8 right-6 md:right-8 animate-bounce" onClick={handleStoryC}>
