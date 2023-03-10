@@ -99,7 +99,7 @@ export default function Intro() {
     return (
       <>
         <main style={breath} className="" ref={main}>
-            <div className="absolute md:inset-1/4 top-1/4 left-5">
+            <div className="absolute md:inset-1/4 top-1/4 px-5">
                 <div className="grid grid-rows-2">
                     <div className="flex flex-col">
                         <div className="flex justify-center">
