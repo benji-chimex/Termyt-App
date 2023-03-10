@@ -66,7 +66,7 @@ export default function Timer ({ deadline }) {
                 </div>
                 <div className="text-center py-3 px-10 md:px-0 animate-pulse rounded-lg bg-amber-400">
                     <p style={cold} className="text-2xl md:text-4xl">{mintues}</p>
-                    <p style={right} className="text-md md:xt-2xl">Minutes</p>
+                    <p style={right} className="text-md md:text-2xl">Minutes</p>
                 </div>
                 <div className="text-center py-3 px-10 md:px-0 animate-pulse rounded-lg bg-amber-400">
                     <p style={cold} className="text-2xl md:text-4xl">{seconds}</p>
