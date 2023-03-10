@@ -100,7 +100,7 @@ export default function Intro() {
       <>
         <main style={breath} className="" ref={main}>
             <div className="absolute inset-1/4">
-                <div className="grid grid-rows-2 justify-center">
+                <div className="grid grid-rows-2 md:justify-center justify-items-stretch">
                     <div className="flex flex-col justify-center">
                         <div className="flex justify-center">
                             <Image src={termyt} alt="Logo" width={450} height={350}/>
