@@ -99,13 +99,13 @@ export default function Intro() {
     return (
       <>
         <main style={breath} className="" ref={main}>
-            <div className="absolute md:inset-1/4 top-10 left-10 right-10 bottom-10">
+            <div className="absolute md:inset-1/4 top-1/4 left-5">
                 <div className="grid grid-rows-2">
                     <div className="flex flex-col">
                         <div className="flex justify-center">
                             <Image src={termyt} alt="Logo" width={450} height={350}/>
                         </div>
-                        <span className='text-white text-start md:text-center text-xl lg:text-3xl' style={cold} ref={span_el}/>
+                        <span className='text-white text-center md:text-center text-xl lg:text-3xl' style={cold} ref={span_el}/>
                     </div>
                     {!timerActive && <div className="justify-self-center relative animate-bounce cursor-pointer self-center"
                      onClick={footerActive ? handleMint : handleHeader}>
