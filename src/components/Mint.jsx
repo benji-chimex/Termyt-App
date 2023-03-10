@@ -60,25 +60,26 @@ export default function Mint () {
         setLoading(false)
     }
 
+    const { isConnected, address } = useAccount()
+
     const { config } = usePrepareContractWrite({
         address : "0x72C49a20378dEC1cc152aB888c5C088DbbA8cfD6",
+        chainId: 43113,
         abi : termytABI,
         functionName : "mint",
         args : [BigNumber.from(amount)],
-        chainId: 43113,
         overrides : {
+            from : address,
             value : ethers.utils.parseEther("1")
         }
     })
 
     const { write, data, error, status } = useContractWrite(config)
-    const { isConnected } = useAccount()
 
     useContractEvent({
         address : "0x72C49a20378dEC1cc152aB888c5C088DbbA8cfD6",
         abi : termytABI,
         eventName : "Minted",
-        chainId: 43113,
         listener(owner, amount) {
             console.log(owner, amount)
             if(status == "success") {
@@ -95,7 +96,8 @@ export default function Mint () {
                 setError(true)
                 setErrMsg(error.message)
             }
-        }
+        },
+        chainId: 43113
     })
 
     const handleMint = (e) => {

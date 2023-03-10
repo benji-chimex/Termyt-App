@@ -1,5 +1,7 @@
 import { StateProvider } from '@/store'
 import '@/styles/globals.css'
+import '@react-pdf-viewer/core/lib/styles/index.css';
+import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 import { modalConnectors, walletConnectProvider, EthereumClient } from '@web3modal/ethereum'
 import { Web3Modal } from '@web3modal/react'
 import { configureChains, createClient, WagmiConfig } from 'wagmi'

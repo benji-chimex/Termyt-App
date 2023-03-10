@@ -71,7 +71,9 @@ export default function Header() {
               </div>
               <div className="text-2xl text-center cursor-pointer" style={cold}>
                 <div className={router.pathname == "/whitepaper" ? "text-amber-300" : "text-white hover:text-amber-300"}>
-                  <Link href="/api/whitepaper">WHITEPAPER</Link>
+                  <Link href="/whitepaper">
+                    WHITEPAPER
+                  </Link>
                 </div>
               </div>
               <div className="text-2xl text-center cursor-pointer" style={cold}>

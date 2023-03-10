@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useEffect, useRef, useContext, useState } from 'react'
 import Typed from 'typed.js'
 import { store } from '@/store'
+import Timer from './Timer'
 
 const Cold_Warm = local({ src : "../../public/fonts/Cold_Warm.otf" })
 const Robus = local({ src : "../../public/fonts/Robus.otf" })
@@ -25,7 +26,7 @@ export default function Intro() {
     const [breath, setBreath] = useState()
 
     const { state, dispatch } = useContext(store)
-    const { footerActive } = state.animation
+    const { footerActive, timerActive } = state.animation
     
     useEffect(() => {
         const breath = {
@@ -35,7 +36,7 @@ export default function Intro() {
         setBreath(breath)
 
         const options = {
-            strings : ["The Termyt NFT collection mimicking a termite colony."],
+            strings : ["Based Off of the termite caste system."],
             typeSpeed : 100
         }
 
@@ -104,15 +105,18 @@ export default function Intro() {
                         <div className="flex justify-center">
                             <Image src={termyt} alt="Logo" width={450} height={350}/>
                         </div>
-                        <span className='text-white text-center text-xl lg:text-2xl' style={cold} ref={span_el}/>
+                        <span className='text-white text-center text-xl lg:text-3xl' style={cold} ref={span_el}/>
                     </div>
-                    <div className="justify-self-center relative animate-bounce cursor-pointer self-center"
+                    {!timerActive && <div className="justify-self-center relative animate-bounce cursor-pointer self-center"
                      onClick={footerActive ? handleMint : handleHeader}>
                         <Image src={button} alt="Let's Go"/>
                         <h1 className="absolute text-3xl top-5 left-14" style={cold}>
                             {footerActive ? "Mint" : "Start"}
                         </h1>
-                    </div>
+                    </div>}
+                    {timerActive && <div className="">
+                        <Timer deadline="2023-03-10T02:44:00"/>
+                    </div>}
                 </div>
             </div>
         </main>

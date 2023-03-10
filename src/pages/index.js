@@ -23,21 +23,26 @@ const footer = {
   const story = [
     { 
       header : "Intro",
-      paragraph : `The Termyt NFT collection is a one of a kind collection which mimicks the termite colony system.
-      It consists of Queens, Kings, Royals, Soldiers and Workers. When you mint a Termyt NFT, you will
-      receive a NFT placeholder. After public mint, the content of the placeholder will be revealed.`
+      paragraph : ` Welcome to Termyt, the unique NFT gamefi project that is inspired by the intricate system of termite colonies.
+      Our NFT collection consists of a variety of fascinating and intricately designed characters, including Queens, Kings, Royals, Soldiers, and Workers.
+      When you purchase a Termyt NFT, you'll receive a special NFT placeholder that contains a hidden surprise. The placeholder is just a teaser of what's to come, as the actual content of the NFT will be revealed after the public minting.
+      Our goal is to create a community of dedicated and passionate Termyt collectors and Gamers who appreciate the artistry and complexity of these fascinating creatures.
+      Whether you're a seasoned NFT collector or a newcomer to the space, we believe you'll be captivated by the intricate details and unique design of each Termyt NFT.`
     },
     {
       header : "Creation",
-      paragraph : `The Importance of minting a Termyt NFT is to join in the formation of a Termyt Colony. A 
-      Termyt Colony consists of 1 Queen, 1-5 Kings, 1-20 Royals, any amount of soldiers and any amount of workers.
-      You can join a Termyt colony if you have any of the Termyt NFTs and also have some $MOLD tokens.`
+      paragraph : `Minting a Termyt NFT is the first step to joining the Termyt Colony, a decentralized community of collectors and gamers who are passionate about building a better world for Termyts
+      A Termyt Colony consists of various roles, including 1 Queen, 1-5 Kings, 1-20 Royals, and a significant amount of soldiers and workers, each with unique abilities and benefits.
+      To mint a Termyt NFT, you need to have some $DUNG tokens, which are the tokens used in the Termyt ecosystem.
+      Once you have the tokens, you can use them to mint a Termyt NFT and become a part of the Colony. The Termyt NFT's are unique and cannot be duplicated, ensuring its authenticity and rarity.
+      Don't miss the opportunity to become a part of the Termyt Colony and help shape the future of the Termyt world. Mint your Termyt NFT today and join the adventure!`
     },
     {
       header : "Existence",
-      paragraph : `The Importance of joining a Termyt Colony is to make PROFITS. A Termyt Colony is able to mint
-      a variable amount of the $LAVA token and 3rd party NFts per day after its creation. The amount of $LAVA 
-      tokens to be minted depends on the structure of the colony. 3rd party NFTs will useful in the Termyt Game.`
+      paragraph : `The Termyt NFT game-fi project is one where you can join a colony and reap the rewards of collaboration! One of the key benefits of joining a Termyt Colony is the potential to make profits, just as TERMYT LAY EGGS [$LAVA].
+      Joining a Termyt Colony can be profitable. Queens can lay EGGS [$LAVA tokens] and third-party NFTs each day, depending on their structure. $LAVA tokens have many uses, including trading and staking.
+      Third-party NFTs can give players unique advantages and can be traded for profit.
+      Join a Termyt Colony to start earning rewards!`
     }
   ]
 

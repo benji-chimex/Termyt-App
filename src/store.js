@@ -14,7 +14,8 @@ const initialState = {
         showStoryA : false,
         showStoryB : false,
         showStoryC :false,
-        showSideBar : false
+        showSideBar : false,
+        timerActive : false
     }
 };
 
@@ -116,7 +117,13 @@ const StateProvider = ({ children }) => {
                         showSideBar : payload.showSideBar
                     }
                 };
-            
+            case "Display/Hide Timer" :
+                return {
+                    animation : {
+                        ...state.animation,
+                        timerActive : payload.timerActive
+                    }
+                };
             default :
                 throw new Error()
         };

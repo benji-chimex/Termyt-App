@@ -32,11 +32,28 @@ export default function Faq() {
                 <h1 style={cold} className="text-white text-5xl md:text-7xl my-2">FAQs</h1>
                 <span style={right} className="text-white text-xl md:text-2xl my-2">All your questions are answerd here...</span>
             </div>
-            <div className="grid grid-rows-5 gap-12 justify-center p-5 w-full">
+            <div className="grid grid-rows-10 gap-12 justify-center p-5 w-full">
                 <div className="flip-card">
                     <div className="flip-card-inner">
                         <div className="flip-card-front rounded-lg bg-amber-500 p-5">
                             <h1 style={cold} className="text-5xl text-white mt-10">FAQ - 1</h1>
+                            <div className="grid justify-center">
+                                <Image src={logo} alt="Logo" width={450}/>
+                            </div>
+                        </div>
+                        <div className="flip-card-back rounded-lg bg-amber-500 p-5">
+                            <h1 style={cold} className="text-xl md:text-2xl text-center mt-6 mb-5">What is Termyt NFT project?</h1>
+                            <p style={right} className="text-sm md:text-xl mx-4 my-2">
+                            The Termyt NFT project is a collection of 5000 unique digital assets that have five levels of rarity
+                            and robust utility features. They can be used for governance, staking, and art upgrades.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="flip-card">
+                    <div className="flip-card-inner">
+                        <div className="flip-card-front rounded-lg bg-amber-500 p-5">
+                            <h1 style={cold} className="text-5xl text-white mt-10">FAQ - 2</h1>
                             <div className="grid justify-center">
                                 <Image src={logo} alt="Logo" width={450}/>
                             </div>
@@ -53,7 +70,7 @@ export default function Faq() {
                 <div className="flip-card">
                     <div className="flip-card-inner">
                         <div className="flip-card-front rounded-lg bg-amber-500 p-5">
-                            <h1 style={cold} className="text-5xl text-white mt-10">FAQ - 2</h1>
+                            <h1 style={cold} className="text-5xl text-white mt-10">FAQ - 3</h1>
                             <div className="grid justify-center">
                                 <Image src={logo} alt="Logo" width={450}/>
                             </div>
@@ -70,7 +87,7 @@ export default function Faq() {
                 <div className="flip-card">
                     <div className="flip-card-inner">
                         <div className="flip-card-front rounded-lg bg-amber-500 p-5">
-                            <h1 style={cold} className="text-5xl text-white mt-10">FAQ - 3</h1>
+                            <h1 style={cold} className="text-5xl text-white mt-10">FAQ - 4</h1>
                             <div className="grid justify-center">
                                 <Image src={logo} alt="Logo" width={450}/>
                             </div>
@@ -88,7 +105,7 @@ export default function Faq() {
                 <div className="flip-card">
                     <div className="flip-card-inner">
                         <div className="flip-card-front rounded-lg bg-amber-500 p-5">
-                            <h1 style={cold} className="text-5xl text-white mt-10">FAQ - 4</h1>
+                            <h1 style={cold} className="text-5xl text-white mt-10">FAQ - 5</h1>
                             <div className="grid justify-center">
                                 <Image src={logo} alt="Logo" width={450}/>
                             </div>
@@ -106,15 +123,80 @@ export default function Faq() {
                 <div className="flip-card">
                     <div className="flip-card-inner">
                         <div className="flip-card-front rounded-lg bg-amber-500 p-5">
-                            <h1 style={cold} className="text-5xl text-white mt-10">FAQ - 5</h1>
+                            <h1 style={cold} className="text-5xl text-white mt-10">FAQ - 6</h1>
                             <div className="grid justify-center">
                                 <Image src={logo} alt="Logo" width={450}/>
                             </div>
                         </div>
                         <div className="flip-card-back rounded-lg bg-amber-500 p-5">
-                            <h1 style={cold} className="text-xl md:text-2xl text-center mt-6 mb-5">Why are there no Socials for the Termyt Ecosystem?</h1>
+                            <h1 style={cold} className="text-xl md:text-2xl text-center mt-6 mb-5">What blockchain is Termyt built on?</h1>
                             <p style={right} className="text-sm md:text-xl mx-4 my-2">
-                                The Socials for the Termyt Ecosystem is coming soon after Pre-Sale. 
+                                Termyt is built on the Avalanche network, which is a fast and efficient blockchain ecosystem that provides a secure platform for NFT ownership and utility.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="flip-card">
+                    <div className="flip-card-inner">
+                        <div className="flip-card-front rounded-lg bg-amber-500 p-5">
+                            <h1 style={cold} className="text-5xl text-white mt-10">FAQ - 7</h1>
+                            <div className="grid justify-center">
+                                <Image src={logo} alt="Logo" width={450}/>
+                            </div>
+                        </div>
+                        <div className="flip-card-back rounded-lg bg-amber-500 p-5">
+                            <h1 style={cold} className="text-xl md:text-2xl text-center mt-6 mb-5">What are the different levels of rarity for Termyt NFTs?</h1>
+                            <p style={right} className="text-sm md:text-xl mx-4 my-2">
+                            Termyt NFTs are divided into five levels of rarity: Queen, Kings, Royals, Soldiers, and Workers. Each level has a distinct visual design and unique characteristics.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="flip-card">
+                    <div className="flip-card-inner">
+                        <div className="flip-card-front rounded-lg bg-amber-500 p-5">
+                            <h1 style={cold} className="text-5xl text-white mt-10">FAQ - 8</h1>
+                            <div className="grid justify-center">
+                                <Image src={logo} alt="Logo" width={450}/>
+                            </div>
+                        </div>
+                        <div className="flip-card-back rounded-lg bg-amber-500 p-5">
+                            <h1 style={cold} className="text-xl md:text-2xl text-center mt-6 mb-5">What are the utility features of Termyt NFTs?</h1>
+                            <p style={right} className="text-sm md:text-xl mx-4 my-2">
+                                Termyt NFTs have several utility features, including governance rights, staking, and the Art Upgrade process.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="flip-card">
+                    <div className="flip-card-inner">
+                        <div className="flip-card-front rounded-lg bg-amber-500 p-5">
+                            <h1 style={cold} className="text-5xl text-white mt-10">FAQ - 9</h1>
+                            <div className="grid justify-center">
+                                <Image src={logo} alt="Logo" width={450}/>
+                            </div>
+                        </div>
+                        <div className="flip-card-back rounded-lg bg-amber-500 p-5">
+                            <h1 style={cold} className="text-xl md:text-2xl text-center mt-6 mb-5">What is the Art Upgrade process?</h1>
+                            <p style={right} className="text-sm md:text-xl mx-4 my-2">
+                                The Art Upgrade process allows Termyt NFT holders to enhance the visual design of their NFTs, making them more valuable and collectible. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="flip-card">
+                    <div className="flip-card-inner">
+                        <div className="flip-card-front rounded-lg bg-amber-500 p-5">
+                            <h1 style={cold} className="text-5xl text-white mt-10">FAQ - 10</h1>
+                            <div className="grid justify-center">
+                                <Image src={logo} alt="Logo" width={450}/>
+                            </div>
+                        </div>
+                        <div className="flip-card-back rounded-lg bg-amber-500 p-5">
+                            <h1 style={cold} className="text-xl md:text-2xl text-center mt-6 mb-5">What is the purpose of the community growth and engagement phase?</h1>
+                            <p style={right} className="text-sm md:text-xl mx-4 my-2">
+                                The community growth and engagement phase focuses on growing the Termyt community and engaging with holders 
+                                through exclusive events and experiences. The Art Upgrade process will be made available in this phase.
                             </p>
                         </div>
                     </div>

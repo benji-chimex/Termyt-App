@@ -71,7 +71,7 @@ export default function SideNav () {
           }
         })
 
-        router.push("/api/whitepaper")
+        router.push("/whitepaper")
     }
 
     const handleFaq = (e) => {
@@ -94,7 +94,7 @@ export default function SideNav () {
     }
 
     return (
-        <div className={showSideBar ? "entrance-side absolute top-0 left-0 bg-gray-900 opacity-90 w-full h-screen"
+        <div className={showSideBar ? "entrance absolute top-0 left-0 bg-gray-900 opacity-90 w-full h-screen"
             : "hidden"}>
             <nav className="w-full h-full z-10 relative">
                 <div className="grid grid-rows-2 gap-2 items-center h-full justify-center">
