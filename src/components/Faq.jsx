@@ -193,10 +193,9 @@ export default function Faq() {
                             </div>
                         </div>
                         <div className="flip-card-back rounded-lg bg-amber-500 p-5">
-                            <h1 style={cold} className="text-xl md:text-2xl text-center mt-6 mb-5">What is the purpose of the community growth and engagement phase?</h1>
+                            <h1 style={cold} className="text-xl md:text-2xl text-center mt-6 mb-5">What is the play-to-earn game?</h1>
                             <p style={right} className="text-sm md:text-xl mx-4 my-2">
-                                The community growth and engagement phase focuses on growing the Termyt community and engaging with holders 
-                                through exclusive events and experiences. The Art Upgrade process will be made available in this phase.
+                                The play-to-earn game is a game that utilizes Termyt NFTs as in-game assets and provides rewards and incentives for players. Players can also earn Termyt tokens by participating in the game.
                             </p>
                         </div>
                     </div>
