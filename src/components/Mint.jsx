@@ -253,10 +253,10 @@ export default function Mint () {
                 </div>}
                 {mintingOver && <div className="absolute inset-y-1/3 inset-x-14">
                     <h1 style={cold} className="text-white text-center text-3xl md:text-3xl lg:text-5xl">
-                        PhaseI PreSale Minting is Over
+                        Phase I PreSale Minting is Over
                     </h1>
                     <span style={right} className="text-amber-500 text-xs md:text-sm mx-4">
-                        ***PhaseII PreSale Minting is coming soon
+                        ***Phase II PreSale Minting is coming soon
                     </span>
                 </div>}
             </main>

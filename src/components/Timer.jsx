@@ -53,7 +53,7 @@ export default function Timer ({ deadline }) {
     return (
         <>
             <div className="m-4 text-center">
-                <h1 style={right} className="text-2xl md:text-4xl text-white">PhaseI PreSale Minting Starts In:</h1>
+                <h1 style={right} className="text-2xl md:text-4xl text-white">Phase I PreSale Minting Starts In:</h1>
             </div>
             <div className="grid grid-cols-4 gap-2">
                 <div className="py-3 px-4 md:px-0 animate-pulse rounded-lg bg-amber-400">
