@@ -1,6 +1,7 @@
 import { createContext, useReducer } from "react";
 
 const initialState = {
+    ID : "",
     animation : {
         headerActive : true,
         storyAActive : false,
@@ -26,8 +27,14 @@ const StateProvider = ({ children }) => {
     const [state, dispatch] = useReducer((state, action) => {
         const { type, payload } = action;
         switch(type) {
+            case "Modify ID" :
+                return {
+                    ID : payload.ID,
+                    ...state
+                };
             case "Display/Hide Header" :
                 return {
+                    ...state,
                     animation : {
                         ...state.animation,
                         headerActive : payload.headerActive
@@ -35,6 +42,7 @@ const StateProvider = ({ children }) => {
                 };
             case "Display/Hide StoryA" :
                 return {
+                    ...state,
                     animation : {
                         ...state.animation,
                         storyAActive : payload.storyAActive
@@ -42,6 +50,7 @@ const StateProvider = ({ children }) => {
                 };
             case "Display/Hide StoryB" :
                 return {
+                    ...state,
                     animation : {
                         ...state.animation,
                         storyBActive : payload.storyBActive
@@ -49,6 +58,7 @@ const StateProvider = ({ children }) => {
                 };
             case "Display/Hide StoryC" :
                 return {
+                    ...state,
                     animation : {
                         ...state.animation,
                         storyCActive : payload.storyCActive
@@ -56,6 +66,7 @@ const StateProvider = ({ children }) => {
                 };
             case "Display/Hide Stories" :
                 return {
+                    ...state,
                     animation : {
                         ...state.animation,
                         storiesActive : payload.storiesActive
@@ -63,6 +74,7 @@ const StateProvider = ({ children }) => {
                 };
             case "Display/Hide Footer" :
                 return {
+                    ...state,
                     animation : {
                         ...state.animation,
                         footerActive : payload.footerActive
@@ -70,6 +82,7 @@ const StateProvider = ({ children }) => {
                 };
             case "Display/Hide SideBar" :
                 return {
+                    ...state,
                     animation : {
                         ...state.animation,
                         sideBarActive : payload.sideBarActive
@@ -77,6 +90,7 @@ const StateProvider = ({ children }) => {
                 };
             case "Display/Hide Mint" :
                 return {
+                    ...state,
                     animation : {
                         ...state.animation,
                         mintActive : payload.mintActive
@@ -84,6 +98,7 @@ const StateProvider = ({ children }) => {
                 };
             case "Display/Hide Header Animation" :
                 return {
+                    ...state,
                     animation : {
                         ...state.animation,
                         showHeader : payload.showHeader
@@ -91,6 +106,7 @@ const StateProvider = ({ children }) => {
                 };
             case "Display/Hide StoryA Animation" :
                 return {
+                    ...state,
                     animation : {
                         ...state.animation,
                         showStoryA : payload.showStoryA
@@ -98,6 +114,7 @@ const StateProvider = ({ children }) => {
                 };
             case "Display/Hide StoryB Animation" :
                 return {
+                    ...state,
                     animation : {
                         ...state.animation,
                         showStoryB : payload.showStoryB
@@ -105,6 +122,7 @@ const StateProvider = ({ children }) => {
                 };
             case "Display/Hide StoryC Animation" :
                 return {
+                    ...state,
                     animation : {
                         ...state.animation,
                         showStoryC : payload.showStoryC
@@ -112,6 +130,7 @@ const StateProvider = ({ children }) => {
                 };
             case "Display/Hide SideBar Animation" :
                 return {
+                    ...state,
                     animation : {
                         ...state.animation,
                         showSideBar : payload.showSideBar
@@ -119,6 +138,7 @@ const StateProvider = ({ children }) => {
                 };
             case "Display/Hide Timer" :
                 return {
+                    ...state,
                     animation : {
                         ...state.animation,
                         timerActive : payload.timerActive

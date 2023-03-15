@@ -5,12 +5,12 @@ import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 import { modalConnectors, walletConnectProvider, EthereumClient } from '@web3modal/ethereum'
 import { Web3Modal } from '@web3modal/react'
 import { configureChains, createClient, WagmiConfig } from 'wagmi'
-import { avalanche } from 'wagmi/chains'
+import { avalanche, avalancheFuji } from 'wagmi/chains'
 import Head from 'next/head';
 
 const projectId = "e283e02dc6922cf2ea683a1414f04c39"
 
-const chains = [avalanche]
+const chains = [avalanche, avalancheFuji]
 
 const { provider } = configureChains(chains, [walletConnectProvider({ projectId })])
 

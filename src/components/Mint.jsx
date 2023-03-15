@@ -5,7 +5,8 @@ import times from '../../public/images/times.png'
 import { Righteous } from '@next/font/google'
 import Image from 'next/image'
 import { useContractWrite, usePrepareContractWrite, useAccount, useContractEvent, useContractRead } from 'wagmi'
-import ABI from '../../public/abi/Termyt.json'
+import TermytABI from '../../public/abi/Termyt.json'
+import WhitelistABI from '../../public/abi/Whitelist.json'
 import { ethers, BigNumber } from 'ethers'
 
 const Cold_Warm = local({ src : "../../public/fonts/Cold_Warm.otf" })
@@ -29,10 +30,15 @@ export default function Mint () {
     const { state, dispatch } = useContext(store)
     const { mintActive } = state.animation
 
-    const abi = JSON.stringify(ABI)
-    const termytABI = JSON.parse(abi).abi
+    const termyt_abi = JSON.stringify(TermytABI)
+    const termytABI = JSON.parse(termyt_abi).abi
+
+    const whitelist_abi = JSON.stringify(WhitelistABI)
+    const whitelistABI = JSON.parse(whitelist_abi).abi
 
     const [value, setValue] = useState("")
+    const [ID, setID] = useState("")
+    const [refLink, setRefLink] = useState("")
     const [isMinted, setIsMinted] = useState(false)
     const [_error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -40,6 +46,12 @@ export default function Mint () {
     const [amount, setAmount] = useState(0)
     const [minted, setMinted] = useState(false)
     const [mintingOver, setMintingOver] = useState(false)
+
+    const { isConnected, address } = useAccount()
+
+    useEffect(() => {
+        setID(state.ID)
+    }, [])
 
     const handleClose = (e) => {
         e.preventDefault()
@@ -61,9 +73,7 @@ export default function Mint () {
         setLoading(false)
     }
 
-    const { isConnected, address } = useAccount()
-
-    const { config } = usePrepareContractWrite({
+    const _mint = !isConnected ? undefined : usePrepareContractWrite({
         address : "0xe25b0D245d3dF37BAA7c6500CaD18A4Bfc8e6f59",
         chainId: 43114,
         abi : termytABI,
@@ -71,50 +81,100 @@ export default function Mint () {
         args : [BigNumber.from(amount)],
         overrides : {
             from : address,
-            value : ethers.utils.parseEther("1")
+            value : ethers.utils.parseEther(`${amount}`)
         }
     })
 
-    const { write, error, status } = useContractWrite(config)
+    const _whitelist = !isConnected ? undefined : usePrepareContractWrite({
+        address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
+        chainId: 43114,
+        abi : whitelistABI,
+        functionName : "whitelist",
+        args : [isConnected ? address.slice(6, 13) : address, BigNumber.from(amount)]
+    })
 
-    useContractEvent({
+    const _referral = !isConnected ? undefined : usePrepareContractWrite({
+        address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
+        chainId: 43114,
+        abi : whitelistABI,
+        functionName : "referral",
+        args : [ID]
+    })
+
+    const mint = !isConnected ? undefined : useContractWrite(_mint.config)
+    const whitelist = !isConnected ? undefined : useContractWrite(_whitelist.config)
+    const referral = !isConnected ? undefined : useContractWrite(_referral.config)
+
+    !isConnected ? undefined : useContractEvent({
         address : "0xe25b0D245d3dF37BAA7c6500CaD18A4Bfc8e6f59",
         abi : termytABI,
         eventName : "Minted",
         listener(owner, amount) {
             console.log(owner, amount)
-            if(status == "success") {
-                // console.log(data)
-                // console.log(status)
+            if(mint.status == "success") {
+                whitelist.write?.()
+                ID == "" ? undefined : referral.write?.()
                 setValue("")
                 setIsMinted(true)
                 setMinted(true)
-            } else if(status == "error") {
-                // console.log(error.name, error.message)
-                // console.log(status)
+            } else if(mint.status == "error") {
                 setValue("")
                 setIsMinted(true)
                 setError(true)
-                setErrMsg(error.message)
+                setErrMsg(mint.error.message)
             }
         },
         chainId: 43114
     })
 
-    const { data } = useContractRead({
+    const supply = !isConnected ? undefined : useContractRead({
         address : "0xe25b0D245d3dF37BAA7c6500CaD18A4Bfc8e6f59",
         chainId: 43114,
         abi : termytABI,
-        functionName : "totalSupply",
+        functionName : "totalSupply"
     })
+
+    // const whitelisted = !isConnected ? undefined : useContractRead({
+    //     address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
+    //     chainId : 43114,
+    //     abi : whitelistABI,
+    //     functionName : "whitelisted",
+    //     args : [isConnected ? address.slice(6, 13) : address]
+    // })
+
+    !isConnected ? undefined : useContractEvent({
+        address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
+        abi : whitelistABI,
+        eventName : "Whitelisted",
+        listener(user, amount) {
+            console.log(user, amount)
+            if(whitelist.status == "success") {
+                setRefLink(`https://termyt.com/referral/${address.slice(6, 13)}`)
+            }
+        },
+        chainId: 43114
+    })
+
+    // !isConnected ? undefined : useContractEvent({
+    //     address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
+    //     abi : whitelistABI,
+    //     eventName : "Referral",
+    //     listener(user, referrals) {
+    //         console.log(user, referrals)
+    //         if(referral.status == "success") {
+                
+    //         }
+    //     },
+    //     chainId: 43114
+    // })
 
     const handleMint = (e) => {
         e.preventDefault()
         
-        if(data.toNumber() >= 1500) {
+        if(supply.data.toNumber() >= 300) {
             setMintingOver(true)
         } else {
-            write?.()
+            mint.write?.()
 
             setLoading(true)
 
@@ -123,7 +183,7 @@ export default function Mint () {
                     setValue("")
                     setIsMinted(true)
                     setError(true)
-                    setErrMsg("Transaction Timed Out")
+                    errMsg == "Maximum minting is five" ? setErrMsg(errMsg) : setErrMsg("Transaction Timed Out")
                 }
             }, 60000)
         }
@@ -132,8 +192,17 @@ export default function Mint () {
     const handleChange = (e) => {
         e.preventDefault()
 
-        setValue(e.target.value)
-        setAmount(e.target.value)
+        if(e.target.value == "") {
+            setValue(e.target.value)
+            setAmount(0)
+        } else if(e.target.value > 5) {
+            setValue(e.target.value)
+            setAmount(e.target.value)
+            setErrMsg("Maximum minting is five")
+        } else {
+            setValue(e.target.value)
+            setAmount(e.target.value)
+        }
     }
 
     return (
@@ -163,7 +232,7 @@ export default function Mint () {
                         Thank You for Minting
                     </h1>
                     <span style={right} className="text-amber-500 text-xs md:text-sm mt-3">
-                        {`Transaction Hash : ${data.hash}`}
+                        {`Referral Link : ${refLink}`}
                     </span>
                 </div>}
                 {_error && <div className="absolute inset-y-1/3 inset-x-14">
@@ -184,10 +253,10 @@ export default function Mint () {
                 </div>}
                 {mintingOver && <div className="absolute inset-y-1/3 inset-x-14">
                     <h1 style={cold} className="text-white text-center text-3xl md:text-3xl lg:text-5xl">
-                        PreSale Minting is Over
+                        PhaseI PreSale Minting is Over
                     </h1>
                     <span style={right} className="text-amber-500 text-xs md:text-sm mx-4">
-                        ***Public Minting is coming soon
+                        ***PhaseII PreSale Minting is coming soon
                     </span>
                 </div>}
             </main>

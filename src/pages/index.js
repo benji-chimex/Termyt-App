@@ -33,21 +33,24 @@ const footer = {
       header : "Creation",
       paragraph : `Minting a Termyt NFT is the first step to joining the Termyt Colony, a decentralized community of collectors and gamers who are passionate about building a better world for Termyts
       A Termyt Colony consists of various roles, including 1 Queen, 1-5 Kings, 1-20 Royals, and a significant amount of soldiers and workers, each with unique abilities and benefits.
-      To mint a Termyt NFT, you need to have some $DUNG tokens, which are the tokens used in the Termyt ecosystem.
-      Once you have the tokens, you can use them to mint a Termyt NFT and become a part of the Colony. The Termyt NFT's are unique and cannot be duplicated, ensuring its authenticity and rarity.
+      To mint a Termyt NFT cost only one AVAX. Ou minting process in divided into phases, The PreSale Minting has five phases where 1500 Termyt NFTs (300 in each phase) will be minted while 
+      The PreSale Minting has seven phases where 3500 Termyt NFTs (500 in each phase) will be minted.
+      The Termyt NFT's are unique and cannot be duplicated, ensuring its authenticity and rarity.
       Don't miss the opportunity to become a part of the Termyt Colony and help shape the future of the Termyt world. Mint your Termyt NFT today and join the adventure!`
     },
     {
       header : "Existence",
-      paragraph : `The Termyt NFT game-fi project is one where you can join a colony and reap the rewards of collaboration! One of the key benefits of joining a Termyt Colony is the potential to make profits, just as TERMYT LAY EGGS [$LAVA].
-      Joining a Termyt Colony can be profitable. Queens can lay EGGS [$LAVA tokens] and third-party NFTs each day, depending on their structure. $LAVA tokens have many uses, including trading and staking.
+      paragraph : `The Termyt NFT game-fi project is one where you can join a colony and reap the rewards of collaboration! One of the key benefits of joining a Termyt Colony is the potential to make profits.
+      To join a Termyt colony, you need to have some $DUNG tokens, which are one of the tokens used in the Termyt ecosystem.
+      Once you have the tokens, you can use them to become a part of the Colony.
+      Joining a Termyt Colony can be profitable. Queens in a colony mint $LAVA tokens and third-party NFTs each day, depending on their structure. $LAVA tokens have many uses, including trading and staking.
       Third-party NFTs can give players unique advantages and can be traded for profit.
       Join a Termyt Colony to start earning rewards!`
     }
   ]
 
 export default function Home() {
-  const { state } = useContext(store)
+  const { state, dispatch } = useContext(store)
   const { 
     headerActive, 
     storiesActive, 

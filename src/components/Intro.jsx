@@ -115,7 +115,7 @@ export default function Intro() {
                         </h1>
                     </div>}
                     {timerActive && <div className="">
-                        <Timer deadline="2023-03-13"/>
+                        <Timer deadline="2023-03-20"/>
                     </div>}
                 </div>
             </div>
