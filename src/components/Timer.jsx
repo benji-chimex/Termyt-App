@@ -48,7 +48,7 @@ export default function Timer ({ deadline }) {
         }, 1000)
 
         return () => clearInterval(interval)
-    }, [])
+    })
 
     return (
         <>

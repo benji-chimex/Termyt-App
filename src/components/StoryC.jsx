@@ -87,22 +87,13 @@ export default function Story(props) {
   }
 
     return (
-      <div className={showStoryC ? "entrance-in" : "hidden"}>
-        <main style={story} className={footerActive ? "entrance-out bg-center bg-cover bg-no-repeat" 
-        : "relative bg-center bg-cover bg-no-repeat"}>
-            <div className="absolute mr-3 top-10 md:left-20 max-w-min">
-              <h1 className="text-white text-5xl md:text-7xl" style={cold} ref={header_el}/>
+      <div className="my-2">
+        <main style={story} className="bg-center bg-cover bg-no-repeat p-5 md:p-10">
+            <div className="text-center">
+              <h1 className="text-white leading-10 tracking-wider text-5xl md:text-7xl" style={cold} ref={header_el}/>
             </div>
-            <div className="absolute mr-5 top-24 md:top-32 md:left-24">
-                <p className="text-white text-lg md:text-2xl max-w-sm md:max-w-3xl" style={right} ref={paragraph_el}/>
-            </div>
-            <div className="absolute bottom-20 md:bottom-8 right-6 md:right-8 animate-bounce" onClick={handleStoryC}>
-                <div className="relative">
-                    <Image src={button} alt="Next"/>
-                    <h1 className="absolute text-2xl top-4 left-8 text-black cursor-pointer" style={right}>
-                      Next Story
-                    </h1>
-                </div>
+            <div className="text-center">
+                <p className="text-white leading-10 tracking-wider text-lg md:text-2xl" style={right} ref={paragraph_el}/>
             </div>
         </main>
       </div>

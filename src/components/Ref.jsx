@@ -57,7 +57,7 @@ export default function Ref () {
         setValue("")
     }
 
-    const whitelisted = !isConnected ? undefined : useContractRead({
+    const whitelisted = useContractRead({
         address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
         chainId : 43114,
         abi : whitelistABI,

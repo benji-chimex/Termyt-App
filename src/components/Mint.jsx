@@ -46,6 +46,7 @@ export default function Mint () {
     const [amount, setAmount] = useState(0)
     const [minted, setMinted] = useState(false)
     const [mintingOver, setMintingOver] = useState(false)
+    const [whitelisted, setWhitelisted] = useState(false)
 
     const { isConnected, address } = useAccount()
 
@@ -73,7 +74,7 @@ export default function Mint () {
         setLoading(false)
     }
 
-    const _mint = !isConnected ? undefined : usePrepareContractWrite({
+    const _mint = usePrepareContractWrite({
         address : "0xe25b0D245d3dF37BAA7c6500CaD18A4Bfc8e6f59",
         chainId: 43114,
         abi : termytABI,
@@ -85,7 +86,7 @@ export default function Mint () {
         }
     })
 
-    const _whitelist = !isConnected ? undefined : usePrepareContractWrite({
+    const _whitelist = usePrepareContractWrite({
         address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
         chainId: 43114,
         abi : whitelistABI,
@@ -93,7 +94,7 @@ export default function Mint () {
         args : [isConnected ? address.slice(6, 13) : address, BigNumber.from(amount)]
     })
 
-    const _referral = !isConnected ? undefined : usePrepareContractWrite({
+    const _referral = usePrepareContractWrite({
         address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
         chainId: 43114,
         abi : whitelistABI,
@@ -101,19 +102,19 @@ export default function Mint () {
         args : [ID]
     })
 
-    const mint = !isConnected ? undefined : useContractWrite(_mint.config)
-    const whitelist = !isConnected ? undefined : useContractWrite(_whitelist.config)
-    const referral = !isConnected ? undefined : useContractWrite(_referral.config)
+    const mint = useContractWrite(_mint.config)
+    const whitelist = useContractWrite(_whitelist.config)
+    const referral = useContractWrite(_referral.config)
 
-    !isConnected ? undefined : useContractEvent({
+    useContractEvent({
         address : "0xe25b0D245d3dF37BAA7c6500CaD18A4Bfc8e6f59",
         abi : termytABI,
         eventName : "Minted",
         listener(owner, amount) {
             if(mint.status == "success") {
-                whitelist.write?.()
-                ID == "" ? undefined : referral.write?.()
-                setRefLink(`https://termyt.com/referral/${owner.slice(6, 13)}`)
+                if(amount >= 2) {
+                    whitelist.write?.()
+                }
                 setValue("")
                 setIsMinted(true)
                 setMinted(true)
@@ -127,35 +128,29 @@ export default function Mint () {
         chainId: 43114
     })
 
-    const supply = !isConnected ? undefined : useContractRead({
+    const supply = useContractRead({
         address : "0xe25b0D245d3dF37BAA7c6500CaD18A4Bfc8e6f59",
         chainId: 43114,
         abi : termytABI,
         functionName : "totalSupply"
     })
 
-    // const whitelisted = !isConnected ? undefined : useContractRead({
-    //     address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
-    //     chainId : 43114,
-    //     abi : whitelistABI,
-    //     functionName : "whitelisted",
-    //     args : [isConnected ? address.slice(6, 13) : address]
-    // })
+    useContractEvent({
+        address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
+        abi : whitelistABI,
+        eventName : "Whitelisted",
+        listener(user, amount) {
+            console.log(user, amount)
+            if(whitelist.status == "success") {
+                setWhitelisted(true)
+                ID == "" ? undefined : referral.write?.()
+                setRefLink(`https://termyt.com/referral/${address.slice(6, 13)}`)
+            }
+        },
+        chainId: 43114
+    })
 
-    // !isConnected ? undefined : useContractEvent({
-    //     address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
-    //     abi : whitelistABI,
-    //     eventName : "Whitelisted",
-    //     listener(user, amount) {
-    //         console.log(user, amount)
-    //         if(whitelist.status == "success") {
-    //             setRefLink(`https://termyt.com/referral/${address.slice(6, 13)}`)
-    //         }
-    //     },
-    //     chainId: 43114
-    // })
-
-    // !isConnected ? undefined : useContractEvent({
+    // useContractEvent({
     //     address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
     //     abi : whitelistABI,
     //     eventName : "Referral",
@@ -227,12 +222,14 @@ export default function Mint () {
                 <div className="absolute right-5 top-5 cursor-pointer" onClick={handleClose}>
                     <Image src={times} alt="Menu" width={12} height={12}/>
                 </div>
-                {isMinted && !_error && <div className="absolute inset-y-1/3 inset-x-14">
+                {isMinted && <div className="absolute inset-y-1/3 inset-x-14">
                     <h1 style={cold} className="text-white text-center text-3xl md:text-4xl lg:text-5xl">
                         Thank You for Minting
                     </h1>
                     <span style={right} className="text-amber-500 text-xs md:text-sm mt-3">
-                        {`Referral Link : ${refLink} .... Copy and Share your link for bigger airdrop.`}
+                        {whitelisted ? 
+                        `Referral Link : ${refLink} .... Copy and Share your link for bigger airdrop.` :
+                        "Mint at least 2 termyt NFTs to join the Referral Program"}
                     </span>
                 </div>}
                 {_error && <div className="absolute inset-y-1/3 inset-x-14">

@@ -50,39 +50,31 @@ const footer = {
   ]
 
 export default function Home() {
-  const { state, dispatch } = useContext(store)
+  const { state } = useContext(store)
   const { 
-    headerActive, 
-    storiesActive, 
-    storyAActive, 
-    storyBActive, 
-    storyCActive, 
-    footerActive,
-    sideBarActive,
-    showHeader
+    sideBarActive
   } = state.animation
 
   return (
     <>
       <div className="relative">
-        {headerActive && <div className="relative w-full overflow-hidden">
-          <div style={Termyt} className={showHeader ? "entrance-out bg-cover bg-no-repeat bg-center" 
-          : "entrance bg-cover bg-no-repeat bg-center"}>
+        <div className="relative w-full overflow-hidden">
+          <div style={Termyt} className= "bg-cover bg-no-repeat bg-center">
             <Header/>
             <Intro/>
           </div>
           <Mint/>
-        </div>}
-        {storiesActive && <div>
-          {storyAActive && <StoryA header={story[0].header} paragraph={story[0].paragraph}/>}
-          {storyBActive && <StoryB header={story[1].header} paragraph={story[1].paragraph}/>}
-          {storyCActive && <StoryC header={story[2].header} paragraph={story[2].paragraph}/>}
-        </div>}
-        {footerActive && <div style={{backgroundImage : footer.backgroundImage}} 
+        </div>
+        <div>
+          <StoryA header={story[0].header} paragraph={story[0].paragraph}/>
+          <StoryB header={story[1].header} paragraph={story[1].paragraph}/>
+          <StoryC header={story[2].header} paragraph={story[2].paragraph}/>
+        </div>
+        <div style={{backgroundImage : footer.backgroundImage}} 
           className="bg-contain bg-repeat bg-gray-900">
           <Roadmap/>
-        </div>}
-        {footerActive && <Footer/>}
+        </div>
+        <Footer/>
         {sideBarActive && <SideNav/>}
       </div>
     </>

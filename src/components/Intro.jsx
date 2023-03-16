@@ -21,7 +21,7 @@ export default function Intro() {
     const [breath, setBreath] = useState()
 
     const { state, dispatch } = useContext(store)
-    const { footerActive, timerActive } = state.animation
+    const { timerActive } = state.animation
     
     useEffect(() => {
         const breath = {
@@ -41,44 +41,6 @@ export default function Intro() {
             span_typed.current.destroy()
         }
     }, [])
-
-    const handleHeader = (e) => {
-        e.preventDefault()
-        e.currentTarget.classList.remove("animate-bounce")
-
-        dispatch({
-            type : "Display/Hide Header Animation",
-            payload : {
-                showHeader : true
-            }
-        })
-        setTimeout(() => {
-            dispatch({
-                type : "Display/Hide Header",
-                payload : {
-                    headerActive : false
-                }
-            })
-        }, 500)
-        dispatch({
-            type : "Display/Hide Stories",
-            payload : {
-                storiesActive : true
-            }
-        })
-        dispatch({
-            type : "Display/Hide StoryA",
-            payload : {
-                storyAActive : true
-            }
-        })
-        dispatch({
-            type : "Display/Hide StoryA Animation",
-            payload : {
-                showStoryA : true
-            }
-        })
-    }
 
     const handleMint = (e) => {
         e.preventDefault()
@@ -103,14 +65,14 @@ export default function Intro() {
                         <span className='text-white text-center md:text-center text-xl lg:text-3xl' style={cold} ref={span_el}/>
                     </div>
                     {!timerActive && <div className="justify-self-center relative animate-bounce cursor-pointer self-center"
-                     onClick={footerActive ? handleMint : handleHeader}>
+                     onClick={handleMint}>
                         <Image src={button} alt="Let's Go"/>
                         <h1 className="absolute text-3xl top-5 left-14" style={cold}>
-                            {footerActive ? "Mint" : "Start"}
+                            Mint
                         </h1>
                     </div>}
                     {timerActive && <div className="">
-                        <Timer deadline="2023-03-20"/>
+                        <Timer deadline="2023-03-17"/>
                     </div>}
                 </div>
             </div>

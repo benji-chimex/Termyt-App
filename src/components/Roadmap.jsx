@@ -1,8 +1,7 @@
 import local from '@next/font/local'
 import { Righteous } from '@next/font/google'
-import { useEffect, useRef, useContext } from 'react'
+import { useEffect, useRef } from 'react'
 import Typed from 'typed.js'
-import { store } from '@/store'
 import logo from '../../public/images/logo.png'
 import Image from 'next/image'
 
@@ -29,8 +28,6 @@ export default function Roadmap () {
     const paragraph_el = useRef(null)
     const paragraph_typed = useRef(null)
 
-    const { state } = useContext(store)
-    
     useEffect(() => {
         header_typed.current = new Typed(header_el.current, { strings : ["Roadmap"], typeSpeed : 100 })
         paragraph_typed.current = new Typed(paragraph_el.current, 
@@ -62,8 +59,8 @@ export default function Roadmap () {
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
                                 <p style={right} className="text-md md:text-2xl mx-4 my-2">
                                     Launch the Termyt NFT collection and distribute NFTs to early
-                                    supporters and investors via airdrop. We'll also sell NFTs to the public, and provide details on
-                                    the pricing, the number of NFTs available, and the platform(s) where they'll be sold.
+                                    supporters and investors via airdrop. We will also sell NFTs to the public, and provide details on
+                                    the pricing, the number of NFTs available, and the platform(s) where they will be sold.
                                 </p>
                             </div>
                         </div>
@@ -126,7 +123,7 @@ export default function Roadmap () {
                             </div>
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
                                 <p style={right} className="text-md md:text-2xl mx-4 my-2">
-                                    Lauching the Mechandise. We'll be launching a range of merchandise featuring unique Termyt NFT designs, which will
+                                    Lauching the Mechandise. We will be launching a range of merchandise featuring unique Termyt NFT designs, which will
                                     include clothing, accessories, and collectibles.
                                 </p>
                             </div>

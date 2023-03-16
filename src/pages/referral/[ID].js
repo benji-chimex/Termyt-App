@@ -1,12 +1,21 @@
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-const { query, push } = useRouter();
+export default function ID () {
+  const { query, push } = useRouter();
 
-dispatch({
-  type : "Modify ID",
-  payload : {
-    ID : query
-  }
-})
+  useEffect(() => {
+    dispatch({
+      type : "Modify ID",
+      payload : {
+        ID : query
+      }
+    })
+    
+    push("/")
+  })
 
-push("/")
+  return (
+    <></>
+  )
+}

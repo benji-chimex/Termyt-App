@@ -16,8 +16,7 @@ const cold = {
 }
 
 export default function Header() {
-  const { state, dispatch } = useContext(store)
-  const { footerActive } = state.animation
+  const { dispatch } = useContext(store)
 
   const header = useRef(null)
   const [width, setWidth] = useState()
