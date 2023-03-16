@@ -7,7 +7,7 @@ const initialState = {
         mintActive : false,
         refActive : false,
         showSideBar : false,
-        timerActive : false
+        timerActive : true
     }
 };
 

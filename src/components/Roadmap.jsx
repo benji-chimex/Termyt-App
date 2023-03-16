@@ -54,6 +54,7 @@ export default function Roadmap () {
                                 <div className="grid justify-center">
                                     <Image src={logo} alt="Logo" width={120}/>
                                 </div>
+                                <h1 style={cold} className="text-2xl md:text-5xl my-10">PHASE I</h1>
                                 <h1 style={cold} className="text-2xl md:text-5xl my-10">NFTs LAUNCH</h1>
                             </div>
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
@@ -71,6 +72,7 @@ export default function Roadmap () {
                                 <div className="grid justify-center">
                                     <Image src={logo} alt="Logo" width={120}/>
                                 </div>
+                                <h1 style={cold} className="text-2xl md:text-5xl my-10">PHASE II</h1>
                                 <h1 style={cold} className="text-2xl md:text-5xl my-10">SOCIALS LAUNCH</h1>
                             </div>
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
@@ -87,6 +89,7 @@ export default function Roadmap () {
                                 <div className="grid justify-center">
                                     <Image src={logo} alt="Logo" width={120}/>
                                 </div>
+                                <h1 style={cold} className="text-2xl md:text-5xl my-10">PHASE III</h1>
                                 <h1 style={cold} className="text-2xl md:text-5xl my-10">TOKEN LAUNCH</h1>
                             </div>
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
@@ -103,6 +106,7 @@ export default function Roadmap () {
                                 <div className="grid justify-center">
                                     <Image src={logo} alt="Logo" width={120}/>
                                 </div>
+                                <h1 style={cold} className="text-2xl md:text-5xl my-10">PHASE IV</h1>
                                 <h1 style={cold} className="text-2xl md:text-5xl my-10">GAME LAUNCH</h1>
                             </div>
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">
@@ -119,6 +123,7 @@ export default function Roadmap () {
                                 <div className="grid justify-center">
                                     <Image src={logo} alt="Logo" width={120}/>
                                 </div>
+                                <h1 style={cold} className="text-2xl md:text-5xl my-10">PHASE V</h1>
                                 <h1 style={cold} className="text-2xl md:text-5xl my-10">MECHANDISE LAUNCH</h1>
                             </div>
                             <div className="flip-card-back clip rounded-lg bg-amber-500 p-5 grid place-content-center">

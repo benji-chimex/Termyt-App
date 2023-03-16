@@ -22,8 +22,7 @@ const right = {
 }
 
 const story = {
-  backgroundImage: `url(${parallax.src})`,
-  height: "100vh"
+  backgroundImage: `url(${parallax.src})`
 }
 
 export default function Story(props) {
@@ -46,10 +45,10 @@ export default function Story(props) {
       <div className="">
         <main style={story} className="bg-center bg-cover bg-no-repeat p-5 md:p-10">
             <div className="text-center">
-              <h1 className="text-white leading-10 tracking-wider text-5xl md:text-7xl" style={cold} ref={header_el}/>
+              <h1 className="text-white leading-8 tracking-wide text-5xl md:text-7xl" style={cold} ref={header_el}/>
             </div>
             <div className="text-center">
-                <p className="text-white leading-10 tracking-wider text-lg md:text-2xl" style={right} ref={paragraph_el}/>
+                <p className="text-white leading-8 tracking-wide text-lg md:text-2xl" style={right} ref={paragraph_el}/>
             </div>
         </main>
       </div>

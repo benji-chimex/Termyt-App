@@ -111,10 +111,10 @@ export default function Faq() {
                             </div>
                         </div>
                         <div className="flip-card-back rounded-lg bg-amber-500 p-5">
-                            <h1 style={cold} className="text-xl md:text-2xl text-center mt-6 mb-5">Are there any giveaways like airdrops or free mint?</h1>
+                            <h1 style={cold} className="text-xl md:text-2xl text-center mt-6 mb-5">Are there any giveaways like airdrops?</h1>
                             <p style={right} className="text-sm md:text-xl mx-4 my-2">
-                                There are no free mints but there are airdrops for the $DUNG token. To be eligible
-                                for the airdrop, you must mint at least 5 Termyt NFTs. To multiply your airdrop rewards,
+                                There are airdrops for the $DUNG token. To be eligible
+                                for the airdrop, you must mint at least 2 Termyt NFTs. To multiply your airdrop rewards,
                                 you have to refer people to mint the Termyt NFT.
                             </p>
                         </div>
