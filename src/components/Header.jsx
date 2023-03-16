@@ -63,7 +63,7 @@ export default function Header() {
           </div>
           <div className="basis-1/2 lg:hidden"></div>
           <div className="hidden basis-1/2 lg:block">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-4 gap-2">
               <div className="text-2xl text-center cursor-pointer" style={cold}>
                 <div className={router.pathname == "/" ? "text-amber-300" : "text-white hover:text-amber-300"}>
                   <Link href="/">HOME</Link>
@@ -79,6 +79,13 @@ export default function Header() {
               <div className="text-2xl text-center cursor-pointer" style={cold}>
                 <div className={router.pathname == "/faq" ? "text-amber-300" : "text-white hover:text-amber-300"}>
                   <Link href="/faq">FAQ</Link>
+                </div>
+              </div>
+              <div className="text-2xl text-center cursor-pointer" style={cold}>
+                <div className={router.pathname == "/referrals" ? "text-amber-300" : "text-white hover:text-amber-300"}>
+                  <Link href="/referrals">
+                    REFERRALS
+                  </Link>
                 </div>
               </div>
             </div>

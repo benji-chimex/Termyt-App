@@ -11,6 +11,7 @@ const initialState = {
         sideBarActive : false,
         storiesActive : false,
         mintActive : false,
+        refActive : false,
         showHeader : false,
         showStoryA : false,
         showStoryB : false,
@@ -94,6 +95,14 @@ const StateProvider = ({ children }) => {
                     animation : {
                         ...state.animation,
                         mintActive : payload.mintActive
+                    }
+                };
+            case "Display/Hide Ref" :
+                return {
+                    ...state,
+                    animation : {
+                        ...state.animation,
+                        refActive : payload.refActive
                     }
                 };
             case "Display/Hide Header Animation" :

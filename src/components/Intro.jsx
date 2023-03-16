@@ -8,14 +8,9 @@ import { store } from '@/store'
 import Timer from './Timer'
 
 const Cold_Warm = local({ src : "../../public/fonts/Cold_Warm.otf" })
-const Robus = local({ src : "../../public/fonts/Robus.otf" })
 
 const cold = {
     fontFamily : `${Cold_Warm.style.fontFamily}`
-}
-  
-const robus = {
-    fontFamily : `${Robus.style.fontFamily}`
 }
 
 export default function Intro() {

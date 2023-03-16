@@ -74,6 +74,25 @@ export default function SideNav () {
         router.push("/whitepaper")
     }
 
+    const handleRef = (e) => {
+      e.preventDefault()
+
+      dispatch({
+          type : "Display/Hide SideBar",
+          payload : {
+            sideBarActive : false
+          }
+      })
+      dispatch({
+        type : "Display/Hide SideBar Animation",
+        payload : {
+          showSideBar : false
+        }
+      })
+
+      router.push("/referrals")
+  }
+
     const handleFaq = (e) => {
         e.preventDefault()
 
@@ -97,19 +116,24 @@ export default function SideNav () {
         <div className={showSideBar ? "entrance absolute top-0 left-0 bg-gray-900 opacity-90 w-full h-screen"
             : "hidden"}>
             <nav className="w-full h-full z-10 relative">
-                <div className="grid grid-rows-2 gap-2 items-center h-full justify-center">
-                    <div className="grid grid-rows-3 gap-6 mt-6">
-                        <div className="text-4xl py-6 text-white text-center cursor-pointer" style={cold}>
+                <div className="grid grid-rows-2 gap-2 items-center h-full justify-center mt-4">
+                    <div className="grid grid-rows-4 gap-4 mt-6">
+                        <div className="text-4xl py-4 text-white text-center cursor-pointer" style={cold}>
                         <a className={router.pathname == "/" ? "text-amber-300" : "text-white hover:text-amber-300"}>
                             <span onClick={handleHome}>HOME</span>
                         </a>
                         </div>
-                        <div className="text-4xl py-6 text-white text-center cursor-pointer" style={cold}>
+                        <div className="text-4xl py-4 text-white text-center cursor-pointer" style={cold}>
                         <a className={router.pathname == "/whitepaper" ? "text-amber-300" : "text-white hover:text-amber-300"}>
                             <span onClick={handleWhitepaper}>WHITEPAPER</span>
                         </a>
                         </div>
-                        <div className="text-4xl py-6 text-white text-center cursor-pointer" style={cold}>
+                        <div className="text-4xl py-4 text-white text-center cursor-pointer" style={cold}>
+                        <a className={router.pathname == "/referrals" ? "text-amber-300" : "text-white hover:text-amber-300"}>
+                            <span onClick={handleRef}>REFERRALS</span>
+                        </a>
+                        </div>
+                        <div className="text-4xl py-4 text-white text-center cursor-pointer" style={cold}>
                         <a className={router.pathname == "/faq" ? "text-amber-300" : "text-white hover:text-amber-300"}>
                             <span onClick={handleFaq}>FAQ</span>
                         </a>

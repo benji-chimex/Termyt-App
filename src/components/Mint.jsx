@@ -110,10 +110,10 @@ export default function Mint () {
         abi : termytABI,
         eventName : "Minted",
         listener(owner, amount) {
-            console.log(owner, amount)
             if(mint.status == "success") {
                 whitelist.write?.()
                 ID == "" ? undefined : referral.write?.()
+                setRefLink(`https://termyt.com/referral/${owner.slice(6, 13)}`)
                 setValue("")
                 setIsMinted(true)
                 setMinted(true)
@@ -142,18 +142,18 @@ export default function Mint () {
     //     args : [isConnected ? address.slice(6, 13) : address]
     // })
 
-    !isConnected ? undefined : useContractEvent({
-        address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
-        abi : whitelistABI,
-        eventName : "Whitelisted",
-        listener(user, amount) {
-            console.log(user, amount)
-            if(whitelist.status == "success") {
-                setRefLink(`https://termyt.com/referral/${address.slice(6, 13)}`)
-            }
-        },
-        chainId: 43114
-    })
+    // !isConnected ? undefined : useContractEvent({
+    //     address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
+    //     abi : whitelistABI,
+    //     eventName : "Whitelisted",
+    //     listener(user, amount) {
+    //         console.log(user, amount)
+    //         if(whitelist.status == "success") {
+    //             setRefLink(`https://termyt.com/referral/${address.slice(6, 13)}`)
+    //         }
+    //     },
+    //     chainId: 43114
+    // })
 
     // !isConnected ? undefined : useContractEvent({
     //     address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
@@ -232,7 +232,7 @@ export default function Mint () {
                         Thank You for Minting
                     </h1>
                     <span style={right} className="text-amber-500 text-xs md:text-sm mt-3">
-                        {`Referral Link : ${refLink}`}
+                        {`Referral Link : ${refLink} .... Copy and Share your link for bigger airdrop.`}
                     </span>
                 </div>}
                 {_error && <div className="absolute inset-y-1/3 inset-x-14">
