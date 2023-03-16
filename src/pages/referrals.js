@@ -5,7 +5,7 @@ import { store } from "@/store";
 import Ref from "@/components/Ref";
 import Referral from "@/components/Referral";
 
-export default function Faqs() {
+export default function Referrals() {
     const { state } = useContext(store)
     const { sideBarActive } = state.animation
 

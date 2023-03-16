@@ -12,7 +12,7 @@ const cold = {
     fontFamily : `${Cold_Warm.style.fontFamily}`
 }
 
-export default function Intro() {
+export default function Referral() {
     const span_el = useRef(null)
     const span_typed = useRef(null)
     const header_el = useRef(null)

@@ -24,7 +24,7 @@ const right = {
     fontFamily: `${righteous.style.fontFamily}`
 }
 
-export default function Mint () {
+export default function Ref () {
     const { state, dispatch } = useContext(store)
     const { refActive } = state.animation
 
@@ -57,7 +57,7 @@ export default function Mint () {
         setValue("")
     }
 
-    const { data, status } = !isConnected ? undefined : useContractRead({
+    const whitelisted = !isConnected ? undefined : useContractRead({
         address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
         chainId : 43114,
         abi : whitelistABI,
@@ -68,14 +68,12 @@ export default function Mint () {
     const handleRef = (e) => {
         e.preventDefault()
 
-        if(status == "success") {
-            setReferrals(data.toNumber())
+        if(whitelisted.status == "success") {
+            setReferrals(whitelisted.data[2].toNumber())
             setRef(true)
-        } else if(status == "error") {
+        } else if(whitelisted.status == "error") {
             setError(true)
         }
-
-        setError(true)
     }
 
     const handleChange = (e) => {
