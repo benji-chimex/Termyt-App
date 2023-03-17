@@ -13,10 +13,6 @@ const cold = {
 }
 
 export default function Referral() {
-    const span_el = useRef(null)
-    const span_typed = useRef(null)
-    const header_el = useRef(null)
-    const header_typed = useRef(null)
     const main = useRef(null)
 
     const [breath, setBreath] = useState()
@@ -30,19 +26,6 @@ export default function Referral() {
         }
 
         setBreath(breath)
-
-        const options = {
-            strings : ["Refer your Friends and multiply your airdrop."],
-            typeSpeed : 100
-        }
-
-        span_typed.current = new Typed(span_el.current, options)
-        header_typed.current = new Typed(header_el.current, { strings : ["Referrals"], typeSpeed : 100 })
-
-        return () => {
-            span_typed.current.destroy()
-            header_typed.current.destroy()
-        }
     }, [])
 
     const handleRef = (e) => {
@@ -59,13 +42,13 @@ export default function Referral() {
     return (
       <>
         <main style={breath} className="bg-gray-800" ref={main}>
-            <div className="absolute md:inset-1/4 top-1/4 px-2">
+            <div className="absolute md:inset-1/3 top-1/4">
                 <div className="grid grid-rows-2">
                     <div className="flex flex-col justify-center">
-                        <h1 className='my-2 text-white text-center md:text-center text-5xl lg:text-6xl' style={cold} ref={header_el}/>
-                        <span className='text-white text-center my-2 md:text-center text-xl lg:text-2xl' style={cold} ref={span_el}/>
+                        <h1 className='my-4 text-white text-center md:text-center text-5xl lg:text-6xl' style={cold}>Referrals</h1>
+                        <span className='text-white text-center my-4 md:text-center text-xl lg:text-2xl' style={cold}>Refer your Friends and multiply your airdrop.</span>
                     </div>
-                    <div className="justify-self-center relative animate-bounce cursor-pointer self-center"
+                    <div className="justify-self-center relative animate-bounce cursor-pointer self-center my-4"
                      onClick={handleRef}>
                         <Image src={button} alt="Let's Go"/>
                         <h1 className="absolute text-3xl top-5 left-5" style={cold}>
