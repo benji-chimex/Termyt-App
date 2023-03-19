@@ -222,7 +222,7 @@ export default function Mint () {
                 <div className="absolute right-5 top-5 cursor-pointer" onClick={handleClose}>
                     <Image src={times} alt="Menu" width={12} height={12}/>
                 </div>
-                {isMinted && <div className="absolute inset-y-1/3 inset-x-14">
+                {isMinted && !_error && <div className="absolute inset-y-1/3 inset-x-14">
                     <h1 style={cold} className="text-white text-center text-3xl md:text-4xl lg:text-5xl">
                         Thank You for Minting
                     </h1>
