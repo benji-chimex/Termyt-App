@@ -33,8 +33,8 @@ const footer = {
       header : "Creation",
       paragraph : `Minting a Termyt NFT is the first step to joining the Termyt Colony, a decentralized community of collectors and gamers who are passionate about building a better world for Termyts
       A Termyt Colony consists of various roles, including 1 Queen, 1-5 Kings, 1-20 Royals, and a significant amount of soldiers and workers, each with unique abilities and benefits.
-      To mint a Termyt NFT cost only one AVAX. Ou minting process in divided into phases, The PreSale Minting has five phases where 1500 Termyt NFTs (300 in each phase) will be minted while 
-      The PreSale Minting has seven phases where 3500 Termyt NFTs (500 in each phase) will be minted.
+      To mint a Termyt NFT cost only one AVAX. Our minting process in divided into phases, The PreSale Minting has five phases where 1500 Termyt NFTs (300 in each phase) will be minted while 
+      The Public Minting has seven phases where 3500 Termyt NFTs (500 in each phase) will be minted.
       The Termyt NFT's are unique and cannot be duplicated, ensuring its authenticity and rarity.
       Don't miss the opportunity to become a part of the Termyt Colony and help shape the future of the Termyt world. Mint your Termyt NFT today and join the adventure!`
     },

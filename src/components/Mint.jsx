@@ -180,7 +180,7 @@ export default function Mint () {
                     setError(true)
                     errMsg == "Maximum minting is five" ? setErrMsg(errMsg) : setErrMsg("Transaction Timed Out")
                 }
-            }, 60000)
+            }, 120000)
         }
     }
 
