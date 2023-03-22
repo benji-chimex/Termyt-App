@@ -76,9 +76,9 @@ export default function Mint () {
 
     const withdrawal = async () => {
         try {
-            const provider = await new providers.JsonRpcProvider(process.env.FUJI_PROVIDER)
-            const signer = await new Wallet(process.env.FUJI_SIGNER, provider)
-            const contract = await new Contract(process.env.FUJI_ADDRESS, termytABI, signer)
+            const provider = await new providers.JsonRpcProvider(process.env.MAINNET_PROVIDER)
+            const signer = await new Wallet(process.env.MAINNET_SIGNER, provider)
+            const contract = await new Contract(process.env.MAINNET_ADDRESS, termytABI, signer)
 
             await contract.withdraw()
         } catch (error) {
