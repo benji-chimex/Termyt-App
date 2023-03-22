@@ -88,7 +88,7 @@ export default function Mint () {
 
     const _mint = usePrepareContractWrite({
         address : "0x0C1F19759C4494E0b6E5e5fEF633759E094fCe65",
-        chainId: 43113,
+        chainId: 43114,
         abi : termytABI,
         functionName : "mint",
         args : [BigNumber.from(amount)],
@@ -99,7 +99,7 @@ export default function Mint () {
 
     const _whitelist = usePrepareContractWrite({
         address : "0xF2fA674dA56383dBF84645FFFaAa97279D038b61",
-        chainId: 43113,
+        chainId: 43114,
         abi : whitelistABI,
         functionName : "whitelist",
         args : [isConnected ? address.slice(6, 13) : address, BigNumber.from(amount)]
@@ -107,7 +107,7 @@ export default function Mint () {
 
     const _referral = usePrepareContractWrite({
         address : "0xF2fA674dA56383dBF84645FFFaAa97279D038b61",
-        chainId: 43113,
+        chainId: 43114,
         abi : whitelistABI,
         functionName : "referral",
         args : [ID]
@@ -138,12 +138,12 @@ export default function Mint () {
                 setErrMsg(mint.error.message)
             }
         },
-        chainId: 43113
+        chainId: 43114
     })
 
     const supply = useContractRead({
         address : "0x0C1F19759C4494E0b6E5e5fEF633759E094fCe65",
-        chainId: 43113,
+        chainId: 43114,
         abi : termytABI,
         functionName : "totalSupply"
     })
@@ -159,7 +159,7 @@ export default function Mint () {
                 setRefLink(`http://localhost:3000/referral/${address.slice(6, 13)}`)
             }
         },
-        chainId: 43113
+        chainId: 43114
     })
 
     // useContractEvent({
@@ -172,7 +172,7 @@ export default function Mint () {
                 
     //         }
     //     },
-    //     chainId: 43113
+    //     chainId: 43114
     // })
 
     const handleMint = (e) => {
