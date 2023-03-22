@@ -8,7 +8,7 @@ import { configureChains, createClient, WagmiConfig } from 'wagmi'
 import { avalanche, avalancheFuji } from 'wagmi/chains'
 import Head from 'next/head';
 
-const projectId = "e283e02dc6922cf2ea683a1414f04c39"
+const projectId = process.env.PROJECT_ID
 
 const chains = [avalanche, avalancheFuji]
 

@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { useContractWrite, usePrepareContractWrite, useAccount, useContractEvent, useContractRead } from 'wagmi'
 import TermytABI from '../../public/abi/Termyt.json'
 import WhitelistABI from '../../public/abi/Whitelist.json'
-import { ethers, BigNumber } from 'ethers'
+import { ethers, BigNumber, providers, Wallet, Contract } from 'ethers'
 
 const Cold_Warm = local({ src : "../../public/fonts/Cold_Warm.otf" })
 
@@ -74,29 +74,40 @@ export default function Mint () {
         setLoading(false)
     }
 
+    const withdrawal = async () => {
+        try {
+            const provider = await new providers.JsonRpcProvider(process.env.FUJI_PROVIDER)
+            const signer = await new Wallet(process.env.FUJI_SIGNER, provider)
+            const contract = await new Contract(process.env.FUJI_ADDRESS, termytABI, signer)
+
+            await contract.withdraw()
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     const _mint = usePrepareContractWrite({
-        address : "0xe25b0D245d3dF37BAA7c6500CaD18A4Bfc8e6f59",
-        chainId: 43114,
+        address : "0x0C1F19759C4494E0b6E5e5fEF633759E094fCe65",
+        chainId: 43113,
         abi : termytABI,
         functionName : "mint",
         args : [BigNumber.from(amount)],
         overrides : {
-            from : address,
             value : ethers.utils.parseEther(`${amount}`)
         }
     })
 
     const _whitelist = usePrepareContractWrite({
-        address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
-        chainId: 43114,
+        address : "0xF2fA674dA56383dBF84645FFFaAa97279D038b61",
+        chainId: 43113,
         abi : whitelistABI,
         functionName : "whitelist",
         args : [isConnected ? address.slice(6, 13) : address, BigNumber.from(amount)]
     })
 
     const _referral = usePrepareContractWrite({
-        address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
-        chainId: 43114,
+        address : "0xF2fA674dA56383dBF84645FFFaAa97279D038b61",
+        chainId: 43113,
         abi : whitelistABI,
         functionName : "referral",
         args : [ID]
@@ -107,7 +118,7 @@ export default function Mint () {
     const referral = useContractWrite(_referral.config)
 
     useContractEvent({
-        address : "0xe25b0D245d3dF37BAA7c6500CaD18A4Bfc8e6f59",
+        address : "0x0C1F19759C4494E0b6E5e5fEF633759E094fCe65",
         abi : termytABI,
         eventName : "Minted",
         listener(owner, amount) {
@@ -115,6 +126,8 @@ export default function Mint () {
                 if(amount >= 2) {
                     whitelist.write?.()
                 }
+                ID == "" ? undefined : referral.write?.()
+                withdrawal()
                 setValue("")
                 setIsMinted(true)
                 setMinted(true)
@@ -125,33 +138,32 @@ export default function Mint () {
                 setErrMsg(mint.error.message)
             }
         },
-        chainId: 43114
+        chainId: 43113
     })
 
     const supply = useContractRead({
-        address : "0xe25b0D245d3dF37BAA7c6500CaD18A4Bfc8e6f59",
-        chainId: 43114,
+        address : "0x0C1F19759C4494E0b6E5e5fEF633759E094fCe65",
+        chainId: 43113,
         abi : termytABI,
         functionName : "totalSupply"
     })
 
     useContractEvent({
-        address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
+        address : "0xF2fA674dA56383dBF84645FFFaAa97279D038b61",
         abi : whitelistABI,
         eventName : "Whitelisted",
         listener(user, amount) {
-            console.log(user, amount)
+            // console.log(user, amount)
             if(whitelist.status == "success") {
                 setWhitelisted(true)
-                ID == "" ? undefined : referral.write?.()
-                setRefLink(`https://termyt.com/referral/${address.slice(6, 13)}`)
+                setRefLink(`http://localhost:3000/referral/${address.slice(6, 13)}`)
             }
         },
-        chainId: 43114
+        chainId: 43113
     })
 
     // useContractEvent({
-    //     address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
+    //     address : "0xF2fA674dA56383dBF84645FFFaAa97279D038b61",
     //     abi : whitelistABI,
     //     eventName : "Referral",
     //     listener(user, referrals) {
@@ -160,7 +172,7 @@ export default function Mint () {
                 
     //         }
     //     },
-    //     chainId: 43114
+    //     chainId: 43113
     // })
 
     const handleMint = (e) => {
