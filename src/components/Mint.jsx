@@ -29,6 +29,7 @@ const right = {
 export default function Mint () {
     const { state, dispatch } = useContext(store)
     const { mintActive } = state.animation
+    const { ID } = state
 
     const termyt_abi = JSON.stringify(TermytABI)
     const termytABI = JSON.parse(termyt_abi).abi
@@ -37,7 +38,6 @@ export default function Mint () {
     const whitelistABI = JSON.parse(whitelist_abi).abi
 
     const [value, setValue] = useState("")
-    const [ID, setID] = useState("")
     const [refLink, setRefLink] = useState("")
     const [isMinted, setIsMinted] = useState(false)
     const [_error, setError] = useState(false)
@@ -49,10 +49,6 @@ export default function Mint () {
     const [whitelisted, setWhitelisted] = useState(false)
 
     const { isConnected, address } = useAccount()
-
-    useEffect(() => {
-        setID(state.ID)
-    }, [])
 
     const handleClose = (e) => {
         e.preventDefault()
@@ -87,7 +83,7 @@ export default function Mint () {
     }
 
     const _mint = usePrepareContractWrite({
-        address : "0x0C1F19759C4494E0b6E5e5fEF633759E094fCe65",
+        address : "0x871370A0cDFE75806c11A94Db0FD80FB2f4bfB6A",
         chainId: 43114,
         abi : termytABI,
         functionName : "mint",
@@ -102,7 +98,7 @@ export default function Mint () {
         chainId: 43114,
         abi : whitelistABI,
         functionName : "whitelist",
-        args : [isConnected ? address.slice(6, 13) : address, BigNumber.from(amount)]
+        args : [isConnected ? address.slice(6, 13) : null, BigNumber.from(amount)]
     })
 
     const _referral = usePrepareContractWrite({
@@ -117,16 +113,32 @@ export default function Mint () {
     const whitelist = useContractWrite(_whitelist.config)
     const referral = useContractWrite(_referral.config)
 
+    const wallet = useContractRead({
+        address : "0x871370A0cDFE75806c11A94Db0FD80FB2f4bfB6A",
+        chainId: 43114,
+        abi : termytABI,
+        functionName : "walletOfOwner",
+        args : [isConnected ? address : null]
+    })
+
+    const token = useContractRead({
+        address : "0x871370A0cDFE75806c11A94Db0FD80FB2f4bfB6A",
+        chainId: 43114,
+        abi : termytABI,
+        functionName : "tokenURI",
+        args : [1]
+    })
+
     useContractEvent({
-        address : "0x0C1F19759C4494E0b6E5e5fEF633759E094fCe65",
+        address : "0x871370A0cDFE75806c11A94Db0FD80FB2f4bfB6A",
         abi : termytABI,
         eventName : "Minted",
         listener(owner, amount) {
             if(mint.status == "success") {
-                if(amount >= 2) {
+                if(amount >= 2 && wallet.data.length >= 2) {
                     whitelist.write?.()
                 }
-                ID == "" ? undefined : referral.write?.()
+                ID == null ? undefined : referral.write?.()
                 withdrawal()
                 setValue("")
                 setIsMinted(true)
@@ -142,7 +154,7 @@ export default function Mint () {
     })
 
     const supply = useContractRead({
-        address : "0x0C1F19759C4494E0b6E5e5fEF633759E094fCe65",
+        address : "0x871370A0cDFE75806c11A94Db0FD80FB2f4bfB6A",
         chainId: 43114,
         abi : termytABI,
         functionName : "totalSupply"
@@ -240,8 +252,8 @@ export default function Mint () {
                     </h1>
                     <span style={right} className="text-amber-500 text-xs md:text-sm mt-3">
                         {whitelisted ? 
-                        `Referral Link : ${refLink} .... Copy and Share your link for bigger airdrop.` :
-                        "Mint at least 2 termyt NFTs to join the Referral Program"}
+                        `Referral Link : ${refLink} | Copy and Share your link for bigger airdrop.` :
+                        "Mint at least 2 termyt NFTs to eligilbe for airdrop."}
                     </span>
                 </div>}
                 {_error && <div className="absolute inset-y-1/3 inset-x-14">

@@ -1,7 +1,7 @@
 import { createContext, useReducer } from "react";
 
 const initialState = {
-    ID : "",
+    ID : null,
     animation : {
         sideBarActive : false,
         mintActive : false,
@@ -19,6 +19,7 @@ const StateProvider = ({ children }) => {
         const { type, payload } = action;
         switch(type) {
             case "Modify ID" :
+                console.log(payload.ID)
                 return {
                     ID : payload.ID,
                     ...state
