@@ -121,13 +121,13 @@ export default function Mint () {
         args : [isConnected ? address : null]
     })
 
-    const token = useContractRead({
-        address : "0x871370A0cDFE75806c11A94Db0FD80FB2f4bfB6A",
-        chainId: 43114,
-        abi : termytABI,
-        functionName : "tokenURI",
-        args : [1]
-    })
+    // const token = useContractRead({
+    //     address : "0x871370A0cDFE75806c11A94Db0FD80FB2f4bfB6A",
+    //     chainId: 43114,
+    //     abi : termytABI,
+    //     functionName : "tokenURI",
+    //     args : [1]
+    // })
 
     useContractEvent({
         address : "0x871370A0cDFE75806c11A94Db0FD80FB2f4bfB6A",
