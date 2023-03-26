@@ -67,6 +67,7 @@ export default function Mint () {
             setErrMsg("")
         }
         setValue("")
+        setID("")
         setLoading(false)
     }
 
@@ -229,7 +230,7 @@ export default function Mint () {
     }
 
     return (
-        <div className={mintActive ? "entrance absolute md:inset-1/4 top-1/4 left-10 w-4/5 h-3/5 md:h-3/5 md:w-1/2 bg-gray-900 opacity-90" 
+        <div className={mintActive ? "entrance absolute md:inset-1/4 top-1/4 left-10 w-4/5 h-3/4 md:h-3/4 md:w-1/2 bg-gray-900 opacity-90" 
         : "hidden"}>
             <main className='relative p-10 md:p-5 h-full'>
                 {!isMinted && isConnected && <div className="grid grid-rows-3 gap-2 justify-center">
