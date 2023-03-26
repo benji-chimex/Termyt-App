@@ -1,7 +1,6 @@
 import { createContext, useReducer } from "react";
 
 const initialState = {
-    ID : null,
     animation : {
         sideBarActive : false,
         mintActive : false,
@@ -18,12 +17,6 @@ const StateProvider = ({ children }) => {
     const [state, dispatch] = useReducer((state, action) => {
         const { type, payload } = action;
         switch(type) {
-            case "Modify ID" :
-                console.log(payload.ID)
-                return {
-                    ID : payload.ID,
-                    ...state
-                };
             case "Display/Hide SideBar" :
                 return {
                     ...state,

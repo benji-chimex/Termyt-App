@@ -29,7 +29,6 @@ const right = {
 export default function Mint () {
     const { state, dispatch } = useContext(store)
     const { mintActive } = state.animation
-    const { ID } = state
 
     const termyt_abi = JSON.stringify(TermytABI)
     const termytABI = JSON.parse(termyt_abi).abi
@@ -38,7 +37,8 @@ export default function Mint () {
     const whitelistABI = JSON.parse(whitelist_abi).abi
 
     const [value, setValue] = useState("")
-    const [refLink, setRefLink] = useState("")
+    const [ID, setID] = useState("")
+    const [refCode, setRefCode] = useState("")
     const [isMinted, setIsMinted] = useState(false)
     const [_error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -94,19 +94,19 @@ export default function Mint () {
     })
 
     const _whitelist = usePrepareContractWrite({
-        address : "0xF2fA674dA56383dBF84645FFFaAa97279D038b61",
+        address : "0x251e3A509d433483A56AFbF8eaB9376e2e03C69B",
         chainId: 43114,
         abi : whitelistABI,
         functionName : "whitelist",
-        args : [isConnected ? address.slice(6, 13) : null, BigNumber.from(amount)]
+        args : [isConnected ? `${address.slice(6, 13)}` : null, BigNumber.from(amount)]
     })
 
     const _referral = usePrepareContractWrite({
-        address : "0xF2fA674dA56383dBF84645FFFaAa97279D038b61",
+        address : "0x251e3A509d433483A56AFbF8eaB9376e2e03C69B",
         chainId: 43114,
         abi : whitelistABI,
         functionName : "referral",
-        args : [ID]
+        args : [`${ID}`]
     })
 
     const mint = useContractWrite(_mint.config)
@@ -135,16 +135,17 @@ export default function Mint () {
         eventName : "Minted",
         listener(owner, amount) {
             if(mint.status == "success") {
-                if(amount >= 2 && wallet.data.length >= 2) {
+                if(amount >= 2 || wallet.data.length >= 2) {
                     whitelist.write?.()
                 }
-                ID == null ? undefined : referral.write?.()
+                ID == "" ? undefined : referral.write?.()
                 withdrawal()
                 setValue("")
                 setIsMinted(true)
                 setMinted(true)
             } else if(mint.status == "error") {
                 setValue("")
+                setID("")
                 setIsMinted(true)
                 setError(true)
                 setErrMsg(mint.error.message)
@@ -161,31 +162,27 @@ export default function Mint () {
     })
 
     useContractEvent({
-        address : "0xF2fA674dA56383dBF84645FFFaAa97279D038b61",
+        address : "0x251e3A509d433483A56AFbF8eaB9376e2e03C69B",
         abi : whitelistABI,
         eventName : "Whitelisted",
-        listener(user, amount) {
-            // console.log(user, amount)
+        listener() {
             if(whitelist.status == "success") {
                 setWhitelisted(true)
-                setRefLink(`http://localhost:3000/referral/${address.slice(6, 13)}`)
+                setRefCode(address.slice(6, 13))
             }
         },
         chainId: 43114
     })
 
-    // useContractEvent({
-    //     address : "0xF2fA674dA56383dBF84645FFFaAa97279D038b61",
-    //     abi : whitelistABI,
-    //     eventName : "Referral",
-    //     listener(user, referrals) {
-    //         console.log(user, referrals)
-    //         if(referral.status == "success") {
-                
-    //         }
-    //     },
-    //     chainId: 43114
-    // })
+    useContractEvent({
+        address : "0x251e3A509d433483A56AFbF8eaB9376e2e03C69B",
+        abi : whitelistABI,
+        eventName : "Referral",
+        listener() {
+            setID("")
+        },
+        chainId: 43114
+    })
 
     const handleMint = (e) => {
         e.preventDefault()
@@ -200,6 +197,7 @@ export default function Mint () {
             setTimeout(() => {
                 if(!minted) {
                     setValue("")
+                    setID("")
                     setIsMinted(true)
                     setError(true)
                     errMsg == "Maximum minting is five" ? setErrMsg(errMsg) : setErrMsg("Transaction Timed Out")
@@ -208,7 +206,7 @@ export default function Mint () {
         }
     }
 
-    const handleChange = (e) => {
+    const handleChangeI = (e) => {
         e.preventDefault()
 
         if(e.target.value == "") {
@@ -224,8 +222,14 @@ export default function Mint () {
         }
     }
 
+    const handleChangeII = (e) => {
+        e.preventDefault()
+
+        setID(e.target.value)
+    }
+
     return (
-        <div className={mintActive ? "entrance absolute md:inset-1/4 top-1/4 left-10 w-4/5 h-1/2 md:h-1/2 md:w-1/2 bg-gray-900 opacity-90" 
+        <div className={mintActive ? "entrance absolute md:inset-1/4 top-1/4 left-10 w-4/5 h-3/5 md:h-3/5 md:w-1/2 bg-gray-900 opacity-90" 
         : "hidden"}>
             <main className='relative p-10 md:p-5 h-full'>
                 {!isMinted && isConnected && <div className="grid grid-rows-3 gap-2 justify-center">
@@ -234,8 +238,12 @@ export default function Mint () {
                         <span style={right} className="text-amber-500 text-xs md:text-sm mx-4">***The Maximum mint amount is five</span>
                     </div>
                     <div className="w-full justify-self-stretch">
-                        <label htmlFor="input" className='text-sm md:text-lg text-white' style={right}>Enter Mint Amount</label>
-                        <input onChange={handleChange} value={value} style={right} id='input' type="text" className='w-full p-5 rounded-lg shadow-inner' placeholder='Mint Amount should be less than 5'/>
+                        <label htmlFor="inputI" className='text-sm md:text-lg text-white' style={right}>Enter Mint Amount</label>
+                        <input onChange={handleChangeI} value={value} style={right} id='inputI' type="text" className='w-full p-5 rounded-lg shadow-inner' placeholder='Mint Amount should be less than 5'/>
+                    </div>
+                    <div className="w-full justify-self-stretch">
+                        <label htmlFor="inputII" className='text-sm md:text-lg text-white' style={right}>Enter referral code</label>
+                        <input onChange={handleChangeII} value={ID} style={right} id='inputII' type="text" className='w-full p-5 rounded-lg shadow-inner' placeholder='referral code'/>
                     </div>
                     <div className="justify-self-center mt-5">
                         <button onClick={handleMint} className='text-2xl p-3 bg-amber-500 rounded-lg cursor-pointer shadow-2xl' style={cold}>
@@ -252,8 +260,8 @@ export default function Mint () {
                     </h1>
                     <span style={right} className="text-amber-500 text-xs md:text-sm mt-3">
                         {whitelisted ? 
-                        `Referral Link : ${refLink} | Copy and Share your link for bigger airdrop.` :
-                        "Mint at least 2 termyt NFTs to eligilbe for airdrop."}
+                        `Referral Code : ${refCode} | Copy and Share your code for bigger airdrop.` :
+                        "Mint at least 2 termyt NFTs to eligible for airdrop."}
                     </span>
                 </div>}
                 {_error && <div className="absolute inset-y-1/3 inset-x-14">
