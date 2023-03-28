@@ -3,7 +3,6 @@ import road_map from '../../public/images/roadmap.svg'
 import local from '@next/font/local'
 import Image from 'next/image'
 import { useEffect, useRef, useContext, useState } from 'react'
-import Typed from 'typed.js'
 import { store } from '@/store'
 
 const Cold_Warm = local({ src : "../../public/fonts/Cold_Warm.otf" })

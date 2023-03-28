@@ -58,7 +58,7 @@ export default function Ref () {
     }
 
     const whitelisted = useContractRead({
-        address : "0xC0934B8f9EC3E18C79E308CA03b7198Ce43BD77C",
+        address : "0x251e3A509d433483A56AFbF8eaB9376e2e03C69B",
         chainId : 43114,
         abi : whitelistABI,
         functionName : "whitelisted",
@@ -92,8 +92,8 @@ export default function Ref () {
                         <span style={right} className="text-amber-500 text-xs md:text-sm mx-4">***The More the referrals, the bigger your Airdrop</span>
                     </div>
                     <div className="w-full justify-self-stretch">
-                        <label htmlFor="input" className='text-sm md:text-lg text-white' style={right}>Enter Referral Link</label>
-                        <input onChange={handleChange} value={value} style={right} id='input' type="text" className='w-full p-5 rounded-lg shadow-inner' placeholder='Enter Referral Link'/>
+                        <label htmlFor="input" className='text-sm md:text-lg text-white' style={right}>Enter Referral Code</label>
+                        <input onChange={handleChange} value={value} style={right} id='input' type="text" className='w-full p-5 rounded-lg shadow-inner' placeholder='Enter Referral Code'/>
                     </div>
                     <div className="justify-self-center mt-5">
                         <button onClick={handleRef} className='text-2xl p-3 bg-amber-500 rounded-lg cursor-pointer shadow-2xl' style={cold}>
