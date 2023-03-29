@@ -83,7 +83,7 @@ export default function Ref () {
     }
 
     return (
-        <div className={refActive ? "entrance absolute md:inset-1/4 top-1/4 left-10 w-4/5 h-1/2 md:h-1/2 md:w-1/2 bg-gray-900 opacity-90" 
+        <div className={refActive ? "entrance absolute md:inset-1/4 top-1/4 left-10 w-4/5 h-3/5 md:h-1/2 md:w-1/2 bg-gray-900 opacity-90" 
         : "hidden"}>
             <main className='relative p-10 md:p-5 h-full'>
                 {!isRef && !error && isConnected && <div className="grid grid-rows-3 gap-2 justify-center">
